@@ -9,7 +9,7 @@ Compute B/H Ratios
 --------------------
 To ensure that the g-function does scale with the dimensionless parameters, 5 g-functions varying different heights
 are computed for borefields with uniform spacing of 5 and 8 meters. A table is created. The mean percentage errors
-(computed with :meth:`gFunctionLibrary.statistics.mpe`) are presented in the table below.
+(computed with :py:meth:`gFunctionLibrary.statistics.mpe`) are presented in the table below.
 
 .. raw:: html
 
