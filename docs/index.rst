@@ -5,6 +5,7 @@
 
 gFunctionLibrary Documentation
 =========================================================
+The source code for this project can be found on github at https://github.com/j-c-cook/gFunctionLibrary.
 
 Installation
 --------------

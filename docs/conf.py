@@ -39,6 +39,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.viewcode',
               'sphinx.ext.githubpages',
               'sphinxcontrib.bibtex',
+              'sphinx.ext.autosummary',
               # 'sphinxcontrib.inlinesyntaxhighlight',
               # 'cloud_sptheme.ext.index_styling',
               # 'cloud_sptheme.ext.relbar_toc',
@@ -47,6 +48,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.napoleon']
             # 'cloud_sptheme.ext.escaped_samp_]
 bibtex_bibfiles=['references.bib']
+autosummary_generate = True  # Turn on sphinx.ext.autosummary
 
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ['_templates']

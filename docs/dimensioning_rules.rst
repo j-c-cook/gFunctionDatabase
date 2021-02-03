@@ -299,8 +299,9 @@ in the table below.
 
 Interpolation
 ---------------
-New g-functions are computed that will specifically have a B/H value of 0.0625 to compare the interpolation
-using the `library` g-function curves of 5m versus where the actual computed values fall.
+The g-functions computed with B/H ratios of 0.0625 were computed and are displayed in :numref:`dr_fig_1` to have a
+reference for checking the accuracy of interpolation using the `B/H Library` g-functions (all containing a B spacing of
+5m). The mean percent errors for different methods of interpolation can be seen in the table below.
 
 .. raw:: html
 

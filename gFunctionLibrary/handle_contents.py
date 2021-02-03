@@ -13,6 +13,14 @@ from scipy.interpolate import interp1d
 
 
 class Borefield:
+    """
+    An object that keeps the data for a specific borefield g-function calculation in order
+
+    Parameters
+    ----------
+    data: dict
+        A dictionary which is in the output format of cpgfunction.
+    """
     def __init__(self, data: dict):
         self.bore_locations: list = []  # (x, y) coordinates of boreholes
         self.g: dict = {}  # g-functions keyed by height
@@ -27,12 +35,14 @@ class Borefield:
 
     def read_cpgfunction_output(self, data) -> None:
         """
+        This method is called upon initialization of the object.
+
         Read the cpgfunction output dictionary into the borefield class for easy access of information
 
         Parameters
         ----------
         data: dict
-            a dictionary of the contents of the cpgfunction file
+            A dictionary which is in the output format of cpgfunction.
 
         Returns
         -------
@@ -77,14 +87,32 @@ class Borefield:
         keys = sorted(list(g_tmp.keys()), key=int)  # sort the heights in order
 
         self.g = {key: g_tmp[key] for key in keys}  # fill the g-function dictionary with sorted heights
+        self.Ds = {key: Ds_tmp[key] for key in keys}  # fill the burial depth dictionary with sorted heights
+        self.r_bs = {key: r_bs_tmp[key] for key in keys}
         self.time = {key: t_tmp[key] for key in keys}  # fill the time array for yearly points
 
         return
 
     def g_function_interpolation(self, B_over_H: float, kind='cubic'):
         """
-        Return the g-function for a given B/H value
-        :return: g-function
+        Interpolate a range of g-functions for a specific B/H ratio
+
+        Parameters
+        ----------
+        B_over_H: float
+            A B/H ratio
+        kind: str
+            Could be 'linear', 'quadratic', 'cubic', etc.
+            default: 'cubic'
+
+        Returns
+        -------
+        **g-function: list**
+            A list of the g-function values for each ln(t/ts)
+        **rb: float**
+            A borehole radius value that is interpolated for
+        **D: float**
+            A burial depth that is interpolated for
         """
         # the g-functions are stored in a dictionary based on heights, so an equivalent height can be found
         H_eq = 1 / B_over_H * self.B
@@ -104,18 +132,47 @@ class Borefield:
                 f = interp1d(x, y, kind=kind)
                 self.interpolation_table['g'].append(f)
             # create interpolation tables for 'D' and 'r_b' by height
-            keys = self.r_bs.items()
-            a = 1
+            keys = list(self.r_bs.keys())
+            height_values: list = []
+            rb_values: list = []
+            D_values: list = []
+            for h in keys:
+                height_values.append(float(h))
+                rb_values.append(self.r_bs[h] / float(h))
+                try:
+                    D_values.append(self.Ds[h] / float(h))
+                except:
+                    pass
+            rb_f = interp1d(height_values, rb_values, kind=kind)  # interpolation function for rb values by H equivalent
+            self.interpolation_table['rb'] = rb_f
+            try:
+                D_f = interp1d(height_values, D_values, kind=kind)
+                self.interpolation_table['D'] = D_f
+            except:
+                pass
 
         # create the g-function by interpolating at each ln(t/ts) value
+        rb_value = self.interpolation_table['rb'](H_eq)
+        try:
+            D_value = self.interpolation_table['D'](H_eq)
+        except:
+            D_value = None
         g_function: list = []
         for i in range(len(self.log_time)):
             f = self.interpolation_table['g'][i]
             g = f(H_eq).tolist()
             g_function.append(g)
-        return g_function
+        return g_function, rb_value, D_value
 
     def visualize_g_functions(self):
+        """
+        Visualize the g-functions.
+
+        Returns
+        -------
+        **fig, ax**
+            Figure and axes information.
+        """
         fig, ax = plt.subplots()
 
         ax.set_xlim([-8.8, 3.9])
@@ -149,6 +206,14 @@ class Borefield:
         return fig, ax
 
     def visualize_borefield(self):
+        """
+        Visualize the (x,y) coordinates.
+
+        Returns
+        -------
+        **fig, ax**
+            Figure and axes information.
+        """
         fig, ax = plt.subplots(figsize=(3.5,5))
 
         x, y = list(zip(*self.bore_locations))

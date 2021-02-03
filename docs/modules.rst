@@ -8,3 +8,4 @@ Modules
     :maxdepth: 2
 
     statistics
+    handle_contents
