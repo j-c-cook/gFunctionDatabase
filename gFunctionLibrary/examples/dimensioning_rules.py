@@ -1,4 +1,5 @@
 # Jack C. Cook
+# Tuesday, February 2, 2020
 
 """
 **dimensioning_rules.py**
