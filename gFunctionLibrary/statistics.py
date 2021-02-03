@@ -2,21 +2,33 @@
 # Tuesday, February 2, 2021
 
 """
-statistics.py
-A module for computing statistics of g-functions for comparison
+**statistics.py**
+
+A module for computing statistics of g-functions for comparison.
+
+The g-functions in the library all use Eskilson's original 27 ln(t/ts) points.
 """
 
 
 def mpe(actual: list, predicted: list) -> float:
     """
-    Compute the mean percentage error formula
+    The following mean percentage error formula is used:
 
     .. math::
-        MPE = \frac{100\%}{n}\sum_{i=0}^{n-1}\frac{a_t-p_t}{a_t}
+        MPE = \dfrac{100\%}{n}\sum_{i=0}^{n-1}\dfrac{a_t-p_t}{a_t}
 
-    :param actual: The actual computed value
-    :param predicted: The predicted value
-    :return: the mean percentage error in percent
+    Parameters
+    ----------
+    actual: list
+        The actual computed g-function values
+    predicted: list
+        The predicted g-function values
+
+    Returns
+    -------
+    **mean_percent_error: float**
+        The mean percentage error in percent
+
     """
     # the lengths of the two lists should be the same
     assert len(actual) == len(predicted)

@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>gFunctionLibrary Documentation &#8212; gFunctionLibrary 0.0.1 documentation</title>
+    <title>Statistics Module &#8212; gFunctionLibrary 0.0.1 documentation</title>
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&display=swap" type="text/css" />
@@ -36,7 +36,8 @@
 
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Modules" href="modules.html" /> 
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="Modules" href="modules.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
 var ga_enabled = !$.cookie('disable-ga');
 if(ga_enabled){
@@ -65,10 +66,14 @@ if(ga_enabled){
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="modules.html" title="Modules"
+          <a href="examples.html" title="Examples"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
-    <li><a href="#">gFunctionLibrary 0.0.1 documentation</a> &#187;</li>
- 
+        <li class="right" >
+          <a href="modules.html" title="Modules"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">gFunctionLibrary 0.0.1 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">Modules</a> &#187;</li> 
       </ul>
     </div>
     </div>
@@ -79,36 +84,35 @@ if(ga_enabled){
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="gfunctionlibrary-documentation">
-<h1>gFunctionLibrary Documentation<a class="headerlink" href="#gfunctionlibrary-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>Notes on python version, pip requirements, and pip installation goes here.</p>
-</div>
-<div class="section" id="modules-and-examples">
-<h2>Modules and examples<a class="headerlink" href="#modules-and-examples" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="statistics.html">Statistics Module</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="dimensioning_rules.html">Dimensioning Rules Example</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
+  <div class="section" id="module-gFunctionLibrary.statistics">
+<span id="statistics-module"></span><h1>Statistics Module<a class="headerlink" href="#module-gFunctionLibrary.statistics" title="Permalink to this headline">¶</a></h1>
+<p><strong>statistics.py</strong></p>
+<p>A module for computing statistics of g-functions for comparison.</p>
+<p>The g-functions in the library all use Eskilson’s original 27 ln(t/ts) points.</p>
+<dl class="function">
+<dt id="gFunctionLibrary.statistics.mpe">
+<code class="sig-prename descclassname">gFunctionLibrary.statistics.</code><code class="sig-name descname">mpe</code><span class="sig-paren">(</span><em class="sig-param">actual: list</em>, <em class="sig-param">predicted: list</em><span class="sig-paren">)</span> &#x2192; float<a class="reference internal" href="_modules/gFunctionLibrary/statistics.html#mpe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gFunctionLibrary.statistics.mpe" title="Permalink to this definition">¶</a></dt>
+<dd><p>The following mean percentage error formula is used:</p>
+<div class="math notranslate nohighlight">
+\[MPE = \dfrac{100\%}{n}\sum_{i=0}^{n-1}\dfrac{a_t-p_t}{a_t}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>actual: list</strong></dt><dd><p>The actual computed g-function values</p>
+</dd>
+<dt><strong>predicted: list</strong></dt><dd><p>The predicted g-function values</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>mean_percent_error: float</strong></dt><dd><p>The mean percentage error in percent</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
@@ -116,27 +120,21 @@ if(ga_enabled){
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
-    <h3><a href="#">Page contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">gFunctionLibrary Documentation</a><ul>
-<li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#modules-and-examples">Modules and examples</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-</ul>
-
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="modules.html"
+                          title="Previous page">&larr; Modules</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="modules.html"
-                          title="Next page">&rarr; Modules</a></p>
+    <p class="topless"><a href="examples.html"
+                          title="Next page">&rarr; Examples</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/index.rst.txt"
+      <li><a href="_sources/statistics.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -183,10 +181,14 @@ if(ga_enabled){
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="modules.html" title="Modules"
+          <a href="examples.html" title="Examples"
              >next</a> &nbsp; &nbsp;</li>
-    <li><a href="#">gFunctionLibrary 0.0.1 documentation</a> &#187;</li>
- 
+        <li class="right" >
+          <a href="modules.html" title="Modules"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">gFunctionLibrary 0.0.1 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="modules.html" >Modules</a> &#187;</li> 
       </ul>
     </div>
     </div>
