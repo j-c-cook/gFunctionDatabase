@@ -12,7 +12,11 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../'))
+# sys.path.insert(0, os.path.abspath('.'))
+packagePath = os.path.normpath(
+        os.path.join(os.path.normpath(os.path.dirname(__file__)), '..'))
+sys.path.append(packagePath)
+import gFunctionLibrary
 
 
 # -- Project information -----------------------------------------------------
