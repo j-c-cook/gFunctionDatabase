@@ -42,6 +42,7 @@ extensions = ['sphinx.ext.autodoc',
               'numpydoc',
               'sphinx.ext.napoleon']
             # 'cloud_sptheme.ext.escaped_samp_]
+bibtex_bibfiles=['references.bib']
 
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ['_templates']
