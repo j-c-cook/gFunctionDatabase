@@ -1,3 +1,6 @@
 cloud_sptheme
 numpydoc
 sphinxcontrib-bibtex
+matplotlib
+numpy 
+scipy
