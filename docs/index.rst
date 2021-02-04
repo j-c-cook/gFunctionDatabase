@@ -16,10 +16,20 @@ Modules and examples
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    modules
    examples
+
+Libraries and examples
+-------------------------
+
+References
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   zreferences
 
 
 

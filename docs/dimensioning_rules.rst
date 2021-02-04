@@ -3,8 +3,15 @@
 ****************************
 Dimensioning Rules Example
 ****************************
-A 7x10 borefield is chosen to verify the dimensioning rules of Eskilson and pygfunction. To be clear,
-all of the g-functions in this example were computed using the same rb/H and D/H ratios.
+A 7x10 borefield is chosen to verify the dimensioning rules of Per Eskilson (1988) :cite:`Eskilson_1988`. These g-functions
+have been computed using the methodology of Cimmino and Bernier (2014) :cite:`Cimmino_Bernier_2014` which has been
+implemented in an open source Python package known as `pygfunction <https://github.com/MassimoCimmino/pygfunction>`_,
+which is published on the `Python Package Index (PyPI) <https://pypi.org/project/pygfunction/>`_ :cite:`pygfunction`. Further improvements to the g-function
+calculation methodology are detailed in Cimmino (2018)
+:cite:`Cimmino_2018`. The g-functions in this example are computed using a computationally improved version of
+Massimo Cimmino's methodology, which is discussed in Cook and Spitler (2021) :cite:`Cook_Spitler_2021`.
+All of the g-functions in this example were computed using the same dimensionless borehole radius, rb/H,
+and burial depth, D/H, ratios.
 
 Compute g-Functions with varied B/H Ratios
 --------------------------------------------
