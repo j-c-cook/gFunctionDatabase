@@ -29,12 +29,12 @@ def main():
     B: float = 8.
     H: float = 128.
     # the default for the kind of interpolation is
-    g_interpolated, rb_ratio_interpolated, D_ratio_interpolated = bf.g_function_interpolation(B/H)
+    g_interpolated, rb_interpolated, D_interpolated, H_eq = bf.g_function_interpolation(B/H)
 
     print('The interpolated g-function for a B/H = {}/{}:'.format(B, H))
     print(g_interpolated)
-    print('rb/H = {0:.4f}\trb = {1:.4f}'.format(rb_ratio_interpolated, rb_ratio_interpolated * H))
-    print('D/H = {0:.5f}\tD = {1:.5f}'.format(D_ratio_interpolated, D_ratio_interpolated * H))
+    print('rb = {0:.4f}\trb/H_eq = {1:.4f}'.format(rb_interpolated, rb_interpolated / H_eq))
+    print('D = {0:.5f}\tD/H_eq = {1:.5f}'.format(D_interpolated, D_interpolated / H_eq))
 
     ax_2.plot(bf.log_time, g_interpolated, '^')
     fig_2.savefig('7x10_g_functions_w_interpolated.png')

@@ -345,6 +345,10 @@ reference for checking the accuracy of interpolation using the `B/H Library` g-f
         <td class="tg-c3ow">cubic</td>
         <td class="tg-c3ow">-0.02<br></td>
       </tr>
+      <tr>
+        <td class="tg-c3ow">lagrange</td>
+        <td class="tg-c3ow">1.04<br></td>
+      </tr>
     </tbody>
     </table>
     </embed>

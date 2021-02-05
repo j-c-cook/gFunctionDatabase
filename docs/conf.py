@@ -49,6 +49,7 @@ extensions = ['sphinx.ext.autodoc',
             # 'cloud_sptheme.ext.escaped_samp_]
 bibtex_bibfiles=['references.bib']
 autosummary_generate = True  # Turn on sphinx.ext.autosummary
+bibtex_default_style = 'unsrt'
 
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ['_templates']

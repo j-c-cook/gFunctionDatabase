@@ -9,3 +9,4 @@ Examples
 
     dimensioning_rules
     interpolation_1D
+    interpolation_2D

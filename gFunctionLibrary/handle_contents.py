@@ -9,7 +9,7 @@ A module that handles the contents of the g-function library
 
 import matplotlib.pyplot as plt
 import math
-from scipy.interpolate import interp1d
+from scipy.interpolate import interp1d, lagrange
 
 
 class Borefield:
@@ -87,7 +87,10 @@ class Borefield:
         keys = sorted(list(g_tmp.keys()), key=int)  # sort the heights in order
 
         self.g = {key: g_tmp[key] for key in keys}  # fill the g-function dictionary with sorted heights
-        self.Ds = {key: Ds_tmp[key] for key in keys}  # fill the burial depth dictionary with sorted heights
+        try:
+            self.Ds = {key: Ds_tmp[key] for key in keys}  # fill the burial depth dictionary with sorted heights
+        except:
+            pass
         self.r_bs = {key: r_bs_tmp[key] for key in keys}
         self.time = {key: t_tmp[key] for key in keys}  # fill the time array for yearly points
 
@@ -113,6 +116,12 @@ class Borefield:
             A borehole radius value that is interpolated for
         **D: float**
             A burial depth that is interpolated for
+        **H_eq: float**
+            An equivalent height
+
+            .. math::
+
+                H_{eq} = \dfrac{B_{field}}{B/H}
         """
         # the g-functions are stored in a dictionary based on heights, so an equivalent height can be found
         H_eq = 1 / B_over_H * self.B
@@ -129,7 +138,10 @@ class Borefield:
                     g_value = self.g[key][i]
                     x.append(height_value)
                     y.append(g_value)
-                f = interp1d(x, y, kind=kind)
+                if kind == 'lagrange':
+                    f = lagrange(x, y)
+                else:
+                    f = interp1d(x, y, kind=kind)
                 self.interpolation_table['g'].append(f)
             # create interpolation tables for 'D' and 'r_b' by height
             keys = list(self.r_bs.keys())
@@ -138,15 +150,21 @@ class Borefield:
             D_values: list = []
             for h in keys:
                 height_values.append(float(h))
-                rb_values.append(self.r_bs[h] / float(h))
+                rb_values.append(self.r_bs[h])
                 try:
-                    D_values.append(self.Ds[h] / float(h))
+                    D_values.append(self.Ds[h])
                 except:
                     pass
-            rb_f = interp1d(height_values, rb_values, kind=kind)  # interpolation function for rb values by H equivalent
+            if kind == 'lagrange':
+                rb_f = lagrange(height_values, rb_values)
+            else:
+                rb_f = interp1d(height_values, rb_values, kind=kind)  # interpolation function for rb values by H equivalent
             self.interpolation_table['rb'] = rb_f
             try:
-                D_f = interp1d(height_values, D_values, kind=kind)
+                if kind == 'lagrange':
+                    D_f = lagrange(height_values, D_values)
+                else:
+                    D_f = interp1d(height_values, D_values, kind=kind)
                 self.interpolation_table['D'] = D_f
             except:
                 pass
@@ -162,7 +180,7 @@ class Borefield:
             f = self.interpolation_table['g'][i]
             g = f(H_eq).tolist()
             g_function.append(g)
-        return g_function, rb_value, D_value
+        return g_function, rb_value, D_value, H_eq
 
     def visualize_g_functions(self):
         """

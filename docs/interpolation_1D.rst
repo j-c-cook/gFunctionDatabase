@@ -123,17 +123,25 @@ and D/H ratios should remain the same even after interpolation.
 
 A B and H value of 8m and 128m are respectively selected for this interpolation example. This corresponds
 to a B/H of 0.0625, therefore the interpolated value should fall in between the green and red curves
-in :numref:`interp_1D_fig_2`.
-
-The resulting output is the following:
+in :numref:`interp_1D_fig_2`. That corresponds to rb values in a range of 0.024m-0.048m and D values to fall within
+1m-2m. The resulting output is the following:
 
 .. code-block:: python
 
-        rb/H = 0.0005	rb = 0.0640
-        D/H = 0.02083	D = 2.66667
+        rb = 0.0400	rb/H_eq = 0.0005
+        D = 1.66667	D/H_eq = 0.02083
 
-The interpolated rb/H and D/H ratios make sense. The resulting rb and D values are also shown by
-multiplying those ratios by the height used; 128m.
+The interpolated rb/H and D/H ratios make sense. However, notice that the height is referred to as `H_eq` or
+an equivalent height. This is what is returned from calling the interpolation function,
+:func:`gFunctionLibrary.handle_contents.Borefield.g_function_interpolation`. This occurs because the interpolation for
+a new g-function is a function that is dependent on height.
+
+.. math::
+
+    g(ln(t_i/t_s), H_j) = f(H_j)_i
+
+Where `f` could be any method of interpolation: linear, quadratic, cubic, lagrange, etc. This function is originally
+fit with as many points as there are curves in the library for a particular configuration.
 
 The interpolated g-functions accuracy has already been proven in :doc:`dimensioning_rules`. The interpolated
 g-function is added and the plot presented in :numref:`interp_1D_fig_3`

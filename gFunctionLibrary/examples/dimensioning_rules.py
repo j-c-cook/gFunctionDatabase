@@ -11,6 +11,7 @@ The following goals will be accomplished in this example:
 
 import gFunctionLibrary as gfl
 import matplotlib.pyplot as plt
+from scipy.interpolate import lagrange
 
 
 def main():
@@ -83,10 +84,10 @@ def main():
     B: float = 8.
     H: float = 128.
     B_over_H: float = B / H
-    interpolation_kinds = ['linear', 'quadratic', 'cubic']
+    interpolation_kinds = ['linear', 'quadratic', 'cubic', 'lagrange']
     g_functions = []
     for kind in interpolation_kinds:
-        g_function = bf_5m_lib.g_function_interpolation(B_over_H, kind=kind)
+        g_function, _, _, _ = bf_5m_lib.g_function_interpolation(B_over_H, kind=kind)
         bf_5m_lib.interpolation_table = {}  # this needs reset to recompute the table with a new kind
         g_functions.append(g_function)
     mean_percentage_errors = []
@@ -98,7 +99,7 @@ def main():
         print('\t{0}:\t{1:.2f}%'.format(interpolation_kinds[i], mean_percentage_errors[i]))
     mean_percent_errors_abs = list(map(abs, mean_percentage_errors))
     idx = mean_percent_errors_abs.index(min(mean_percent_errors_abs))
-    print(idx)
+    print('{} interpolation is the most accurate'.format(interpolation_kinds[idx]))
     g_function = g_functions[idx]
     line_10, = ax_1.plot(bf_5m_lib.log_time, g_function, marker='^', zorder=0, color='C9', markersize=5, ls='None',
                          label='0.0625')
