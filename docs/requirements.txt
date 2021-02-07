@@ -4,3 +4,6 @@ sphinxcontrib-bibtex
 matplotlib
 numpy 
 scipy
+pandas
+Pillow 
+natsort
