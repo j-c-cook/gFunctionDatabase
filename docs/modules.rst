@@ -9,3 +9,4 @@ Modules
 
     statistics
     handle_contents
+    coordinate_generator

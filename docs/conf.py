@@ -81,8 +81,14 @@ html_theme_options = {"roottarget": "index",
                        "googleanalytics_id": "UA-53205480-2",
                        "default_layout_text_size": "85%"}
                        # "table_style_default_align": "left"
-
-
+from sphinx.builders.html import StandaloneHTMLBuilder
+StandaloneHTMLBuilder.supported_image_types = [
+    'image/svg+xml',
+    'image/gif',
+    'image/png',
+    'image/jpeg',
+    'image/pdf'
+]
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

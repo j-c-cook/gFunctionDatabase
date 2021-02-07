@@ -23,6 +23,12 @@ Modules and examples
 Libraries and examples
 -------------------------
 
+.. toctree::
+   :maxdepth: 2
+
+   libraries
+   lib_examples
+
 References
 -------------
 
