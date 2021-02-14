@@ -24,8 +24,31 @@ def js_r(file_path: str) -> dict:
     -------
     the .json file in dictionary format
     """
+    file_split_period_ = file_path.split('.')
+    if file_split_period_[-1] != 'json':
+        raise ValueError('The supplied file extension is not a .json.')
     with open(file_path) as f_in:
         return json.load(f_in)
+
+
+def js_dump(d: dict, file_path: str) -> None:
+    """
+    Dump a dictionary to a json file.
+
+    Parameters
+    ----------
+    d: dict
+        The dictionary that is being dumped
+    file_path: str
+        Path to where the dictionary is going to be dumped
+
+    Returns
+    -------
+    None
+    """
+    # https://stackoverflow.com/a/26057360/11637415
+    with open(file_path, 'w') as fp:
+        json.dump(d, fp)
 
 
 def create_dir_if_not(path_to_folder: str):
@@ -44,9 +67,10 @@ def create_dir_if_not(path_to_folder: str):
     # https://www.tutorialspoint.com/How-can-I-create-a-directory-if-it-does-not-exist-using-Python
     if not os.path.exists(path_to_folder):
         os.makedirs(path_to_folder)
+    return
 
 
-def export_dict(d: dict, path_to_output: str, file_ext: str):
+def export_dict(d: dict, path_to_output: str, file_ext: str = None):
     """
     Export a dictionary based on its file extension.
 
@@ -63,7 +87,16 @@ def export_dict(d: dict, path_to_output: str, file_ext: str):
     -------
     None
     """
+    # if there is no file extension provided, then check what is on the file path
+    if file_ext is None:
+        split_path = path_to_output.split('.')
+        file_ext = split_path[-1]
+
     if file_ext == 'csv':
         pd.DataFrame(d).to_csv(path_to_output)
+    elif file_ext == 'xlsx':
+        pd.DataFrame(d).to_excel(path_to_output)
+    elif file_ext == 'json':
+        js_dump(d, path_to_output)
     else:
         raise ValueError('The file extension requested is not yet accounted for in this function.')

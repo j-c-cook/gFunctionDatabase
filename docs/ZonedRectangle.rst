@@ -9,12 +9,30 @@ class operates.
 
 Contents
 -----------
-What range of Nx and Ny values were used? Is the entire library calculated for a B spacing of 5m?
-How long did it take to compute this library?
+The following is a pseudo code for loop for the zoned rectangular fields currently in the
+library.
+
+.. code-block:: none
+
+    For i = 4 To 28
+        For j = i To 32
+            Nx = i
+            Ny = j
+            Call ZonedRectangleGenerate(Nx, Ny)
+        EndFor
+    EndFor
+
+The entire library is computed at B=5m spacing. The library took 254 days of computing time
+using cpgfunctions adaptive discretization scheme.
 
 Create Library File
 ---------------------
-From the output/ directory by the name of <key>.json, merge all of these files into a ZRectLib.json.
+Here's an example of how to provide the path/to/output/ directory containing cpgfunction output files. The files are
+merged into a single library.json file.
+
+.. literalinclude:: ../gFunctionLibrary/Libraries/examples/output_to_library.py
+    :language: python
+    :linenos:
 
 
 Library Access

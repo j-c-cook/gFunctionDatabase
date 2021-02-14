@@ -1,8 +1,8 @@
 .. ZRectExample:
 
-*************************
-Zoned Rectangle Example
-*************************
+**********************************
+Generate Zoned Rectangle
+**********************************
 This example shows how to make use of :func:`gFunctionLibrary.coordinate_generator.ZonedRectangle`
 to create a series of rectangles with an outer perimeter (fixed spacing) base case
 of 7x12.
