@@ -2,6 +2,15 @@
 # Tuesday, February 2, 2021
 
 from setuptools import setup
+import os
+import subprocess
+import sys
+
+try:
+    import git
+except ModuleNotFoundError:
+    subprocess.call([sys.executable, '-m', 'pip', 'install', 'gitpython'])
+    import git
 
 
 def getreqs(fname):
@@ -15,7 +24,23 @@ def getreqs(fname):
     data = file.readlines()
     file.close()
     return [data[i].replace('\n', '') for i in range(len(data))]
+
+
+def pull_first():
+    """This script is in a git directory that can be pulled.
+    JCC: this madness must be done because of git-lfs """
+    cwd = os.getcwd()
+    gitdir = os.path.dirname(os.path.realpath(__file__))
+    os.chdir(gitdir)
+    g = git.cmd.Git(gitdir)
+    try:
+        g.execute(['git', 'lfs', 'pull'])
+    except git.exc.GitCommandError:
+        raise RuntimeError("Make sure git-lfs is installed!")
+    os.chdir(cwd)
     
+
+pull_first()
 
 setup(name='gFunctionLibrary',
       install_requires=getreqs('requirements.txt'),
