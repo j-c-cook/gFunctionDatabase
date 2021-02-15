@@ -44,6 +44,8 @@ def getreqs(fname):
 
 setup(name='gFunctionLibrary',
       install_requires=getreqs('requirements.txt'),
+      url='https://github.com/j-c-cook/gFunctionLibrary',
+      download_url='https://github.com/j-c-cook/gFunctionLibrary/archive/v0.1.1.tar.gz',
       version='0.1.1',
       packages=['gFunctionLibrary'],
       include_package_data=True,
