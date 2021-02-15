@@ -42,8 +42,8 @@ pull_first()
 
 setup(name='gFunctionLibrary',
       install_requires=['matplotlib', 'numpy', 'Pillow', 'scipy', 'pandas', 'natsort'],
-      download_url='https://github.com/j-c-cook/gFunctionLibrary/archive/v0.1.6.zip',
-      version='0.1.6',
+      download_url='https://github.com/j-c-cook/gFunctionLibrary/archive/v0.1.7.tar.gz',
+      version='0.1.7',
       packages=['gFunctionLibrary'],
       include_package_data=True,
       author='Jack C. Cook',
