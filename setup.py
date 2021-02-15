@@ -21,9 +21,8 @@ def getreqs(fname):
 
 setup(name='gFunctionLibrary',
       install_requires=['matplotlib', 'numpy', 'Pillow', 'scipy', 'pandas', 'natsort'],
-      url='https://github.com/j-c-cook/gFunctionLibrary',
-      download_url='https://github.com/j-c-cook/gFunctionLibrary/archive/v0.1.3.tar.gz',
-      version='0.1.3',
+      download_url='https://github.com/j-c-cook/gFunctionLibrary/archive/v0.1.4.zip',
+      version='0.1.4',
       packages=['gFunctionLibrary'],
       include_package_data=True,
       author='Jack C. Cook',
