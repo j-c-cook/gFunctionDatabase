@@ -40,10 +40,20 @@ def pull_first():
 
 pull_first()
 
+# read the contents of your README file
+# https://packaging.python.org/guides/making-a-pypi-friendly-readme/#including-your-readme-in-your-package-s-metadata
+from os import path
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
+
 setup(name='gFunctionLibrary',
       install_requires=['matplotlib', 'numpy', 'Pillow', 'scipy', 'pandas', 'natsort'],
-      download_url='https://github.com/j-c-cook/gFunctionLibrary/archive/v0.1.7.tar.gz',
-      version='0.1.7',
+      url='https://github.com/j-c-cook/gFunctionLibrary',
+      download_url='https://github.com/j-c-cook/gFunctionLibrary/archive/v0.1.8.tar.gz',
+      long_description=long_description,
+      long_description_content_type='text/markdown',
+      version='0.1.8',
       packages=['gFunctionLibrary'],
       include_package_data=True,
       author='Jack C. Cook',
