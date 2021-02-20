@@ -8,3 +8,4 @@ Libraries
     :maxdepth: 2
 
     ZonedRectangle
+    UniformConfigurations
