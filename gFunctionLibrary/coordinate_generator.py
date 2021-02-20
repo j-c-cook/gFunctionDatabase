@@ -275,3 +275,12 @@ class ZonedRectangle(CoordinateGeneratorBase):
             self.gen_z_rect()
             if finished is True:
                 unfinished = False
+
+
+class UniformConfigurations(CoordinateGeneratorBase):
+    """
+    This is a class that provides easy access to the UniformConfigurations module.
+    """
+    def __init__(self):
+        super().__init__()  # initialize the base class
+        a = 1
