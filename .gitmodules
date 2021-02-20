@@ -1,0 +1,3 @@
+[submodule "UniformConfigurations"]
+	path = UniformConfigurations
+	url = https://github.com/j-c-cook/UniformConfigurations
