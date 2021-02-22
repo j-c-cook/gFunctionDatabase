@@ -7,5 +7,5 @@ Libraries
 .. toctree::
     :maxdepth: 2
 
-    ZonedRectangle
-    UniformConfigurations
+    Libraries/ZonedRectangle
+    Libraries/UniformConfigurations

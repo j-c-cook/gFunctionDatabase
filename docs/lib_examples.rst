@@ -7,4 +7,5 @@ Examples
 .. toctree::
     :maxdepth: 2
 
-    ZRectExample
+    Libraries/Examples/ZRectExample
+    Libraries/Examples/AccessLibraries

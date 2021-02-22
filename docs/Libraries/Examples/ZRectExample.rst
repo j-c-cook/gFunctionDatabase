@@ -30,6 +30,6 @@ The files are stored in a key: value dictionary. The key for zoned rectangles is
 
 Source Code
 --------------
-.. literalinclude:: ../gFunctionLibrary/Libraries/examples/gen_zonedrectangle_coordinates.py
+.. literalinclude:: ../../../gFunctionLibrary/Libraries/examples/gen_zonedrectangle_coordinates.py
     :language: python
     :linenos:

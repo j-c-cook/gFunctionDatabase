@@ -365,6 +365,6 @@ An interpolated g-function (using `cubic interpolation`) is now plotted on an up
 Source Code
 --------------
 
-.. literalinclude:: ../gFunctionLibrary/examples/dimensioning_rules.py
+.. literalinclude:: ../../../gFunctionLibrary/examples/dimensioning_rules.py
     :language: python
     :linenos:

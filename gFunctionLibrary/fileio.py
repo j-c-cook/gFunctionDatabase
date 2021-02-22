@@ -12,6 +12,13 @@ import os
 import pandas as pd
 
 
+def path_exists(path_to_file: str):
+    if os.path.isfile(path_to_file):
+        return True
+    else:
+        return False
+
+
 def js_r(file_path: str) -> dict:
     """
     Read a .json file into a dictionary
@@ -24,6 +31,8 @@ def js_r(file_path: str) -> dict:
     -------
     the .json file in dictionary format
     """
+    if not path_exists(file_path):
+        raise ValueError('The file does not exist.')
     file_split_period_ = file_path.split('.')
     if file_split_period_[-1] != 'json':
         raise ValueError('The supplied file extension is not a .json.')

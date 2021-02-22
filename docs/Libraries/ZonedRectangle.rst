@@ -4,7 +4,7 @@
 Zoned Rectangles
 **********************
 This documents the contents, creation and access of the zoned rectangle library.
-See :doc:`ZRectExample` for an example of how the :func:`gFunctionLibrary.coordinate_generator.ZonedRectangle`
+See :doc:`Examples/ZRectExample` for an example of how the :func:`gFunctionLibrary.coordinate_generator.ZonedRectangle`
 class operates.
 
 Contents

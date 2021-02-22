@@ -12,15 +12,26 @@ import gFunctionLibrary as gfl
 
 
 def main():
+    m = 5  # the x-direction
+    n = 4  # the y-direction
+    # ------- Rectangle Library Access Example ----------
+
+    r_lib = gfl.access.LibraryAccess(lib_style='rectangle', display=True)
+    # # find out what is available in the rectangle library
+    library_boundaries = r_lib.query_lib()
+    for key in library_boundaries:
+        start = library_boundaries[key][0]
+        stop = library_boundaries[key][1]
+        print('({0}, {1}) -> ({2}, {3})'.format(str(start[0]).zfill(2), str(start[1]).zfill(2),
+                                                str(stop[0]).zfill(2), str(stop[1]).zfill(2)))
+    r_lib.primary_key_access(m, n)
+    # ---------------------------------------------------
     # ----- Zoned Rectangle Library Access Example ------
-    n = 4
-    m = 5
 
     # load up the library into memory
     zr_lib = gfl.access.LibraryAccess(lib_style='zoned', display=True)
-    zr_lib.primary_key_access(n, m)
+    zr_lib.primary_key_access(m, n)
     print(zr_lib.primary)
-    print(zr_lib.primary_query())
     # ---------------------------------------------------
 
     a = 1

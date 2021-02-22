@@ -7,6 +7,7 @@ Modules
 .. toctree::
     :maxdepth: 2
 
-    statistics
-    handle_contents
-    coordinate_generator
+    Modules/statistics
+    Modules/handle_contents
+    Modules/coordinate_generator
+    Modules/accesslibraries

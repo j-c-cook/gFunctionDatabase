@@ -7,6 +7,6 @@ Examples
 .. toctree::
     :maxdepth: 2
 
-    dimensioning_rules
-    interpolation_1D
-    interpolation_2D
+    Modules/Examples/dimensioning_rules
+    Modules/Examples/interpolation_1D
+    Modules/Examples/interpolation_2D

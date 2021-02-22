@@ -74,6 +74,20 @@ class Decipherkey:
 
 
 class FolderToLib(Decipherkey):
+    """
+
+
+    Parameters
+    ----------
+    path_to_folder
+    lib_type: str
+        - zoned
+        - uniform (same for the following)
+            - rectangle
+            - L
+            - U
+            - Open
+    """
     def __init__(self, path_to_folder, lib_type='zoned'):
         super().__init__()
         self.path_to_folder = path_to_folder

@@ -13,15 +13,14 @@ import gFunctionLibrary as gfl
 
 
 def main():
-    # --------------- Rectangle Example -------------------
-    example_folder = '/media/jackcook/SHARED/Documents/Oklahoma_State/Masters/Research/ORNL_Design_Tool_Projects/' \
-                     'gFunctionLibrary/Library_Backup/Library_Combined/Rectangle_1650_5m_Corrected'
+    # --------------- Uniform field Example -------------------
+    # this is the same for rectangle, L, U, and Open rectangles
+    example_folder = 'Partial_Libraries/Rectangle_Output_Partial'
     r_lib = gfl.folder_to_lib.FolderToLib(example_folder, lib_type='uniform')
     report = r_lib.create_report()  # create a dialogue of what will be going into the lib file
     gfl.fileio.export_dict(report, 'uniform.xlsx')  # export the report
     r_lib_file = r_lib.create_lib_file()  #
     gfl.fileio.export_dict(r_lib_file, 'rectangle_5m.json')
-
     # -----------------------------------------------------
     # --------------- Zoned Rectangle Example -------------
     example_folder = 'Zoned_Rectangle_Outputs/'

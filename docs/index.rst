@@ -9,7 +9,20 @@ The source code for this project can be found on github at https://github.com/j-
 
 Installation
 --------------
-Notes on python version, pip requirements, and pip installation goes here.
+The `gFunctionLibrary <https://pypi.org/project/gFunctionLibrary/>`_ package has been uploaded to
+`PyPi <https://pypi.org>`_. Install the library via pip:
+
+.. code-block:: none
+
+   pip install gFunctionLibrary
+
+As long as you are connected to the internet, pip will download and install the package directly from
+PyPi. If you would like to install a specific version, then you need to specify. For example, if you
+would like to install version 0.1.9, then the following command is needed:
+
+.. code-block:: none
+
+   pip install gFunctionLibrary==0.1.9
 
 Modules and examples
 ----------------------
