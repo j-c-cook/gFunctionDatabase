@@ -1,2 +1,5 @@
+include gFunctionLibrary/Libraries/Open_configurations_5m.json
+include gFunctionLibrary/Libraries/rectangle_5m.json
+include gFunctionLibrary/Libraries/U_configurations_5m.json
 include gFunctionLibrary/Libraries/zoned_rectangle_5m.json
 include requirements.txt
