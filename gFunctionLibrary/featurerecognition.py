@@ -1,6 +1,6 @@
-
 # Jack C. Cook
 # Wednesday, January 15, 2020
+
 """
 History:
 Wednesday, January 15, 2020
@@ -26,6 +26,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from copy import deepcopy
 import math
+from . import handle_contents
 
 
 class FeatureRecognition:
@@ -41,7 +42,6 @@ class FeatureRecognition:
         self.ly = ly
         self.nx = nx
         self.ny = ny
-
 
     @staticmethod
     def field_convex(x: list, y: list) -> tuple:
@@ -219,3 +219,60 @@ class FeatureRecognition:
                   fancybox=True, shadow=True, ncol=3)
 
         return fig, ax
+
+
+def recognize_features(bf: handle_contents.Borefield, lib_type: str):
+    """
+    Get information about a field by feature recognition.
+
+        Parameters
+        ----------
+        bf: handle_contents.borefield
+            A borefield object
+        lib_type: str
+            The library style:
+            - "rectangle"
+            - "L"
+            - "U"
+            - "Open"
+            - "zoned"
+
+    Returns
+    -------
+    relevant_info: dict
+        A dictionary containing information relevant to the library field style
+    """
+
+    x, y = list(zip(*bf.bore_locations))  # unzip the coordinates into x and y lists
+
+    # define what the maximum nested is for the configuration
+    if lib_type == 'U' or lib_type == 'Open':
+        max_nested = 3
+    else:
+        raise ValueError('The requested library is not handled by this function.')
+
+    nest_count = 0
+    keep_nesting = True
+
+    Nx: list = []
+    Ny: list = []
+
+    while nest_count < max_nested and keep_nesting is True:
+        fr = FeatureRecognition(x, y)
+        # append the current shapes nx and ny
+        Nx.append(fr.nx)
+        Ny.append(fr.ny)
+
+        interior = fr.interior
+        if len(interior) == 0:
+            keep_nesting = False
+        else:
+            x, y = list(zip(*interior))  # update the x and y coordinates to be only the interior points
+        nest_count += 1
+
+    if lib_type == 'U' or lib_type == 'Open':
+        relevant_info = {'Nx': Nx[0],
+                         'Ny': Ny[0],
+                         'nested': nest_count}
+
+    return relevant_info

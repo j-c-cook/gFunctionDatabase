@@ -22,7 +22,10 @@ class LibraryAccess:
         self.library = {}  # holds the entirety of the library contents
         self.lib_style = lib_style  # the library style
         self.display = display  # whether or not to print out explanatory statements
-        self.load_library()  # apart of __init__, where a library is loaded
+        if lib_style is None:
+            return
+        else:
+            self.load_library()  # apart of __init__, where a library is loaded
 
     def load_library(self):
         """

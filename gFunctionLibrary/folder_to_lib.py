@@ -12,10 +12,30 @@ from . import platform_specific
 from . import fileio
 from . import handle_contents
 from . import featurerecognition
+from . import access
 
 
-class Decipherkey:
-    def __init__(self):
+class RecognizeFeatures:
+    # TODO: this should take in the lib_style and a borefield object
+    def __init__(self, bf: handle_contents.Borefield, lib_style: str):
+        """
+        Get information about a field by feature recognition.
+
+        Parameters
+        ----------
+        bf: handle_contents.borefield
+            A borefield object
+        lib_style: str
+            The library style:
+            - "rectangle"
+            - "L"
+            - "U"
+            - "Open"
+            - "zoned"
+        """
+        self.bf = bf
+        self.lib_style = lib_style
+
         a = 1
 
     @staticmethod
@@ -73,7 +93,7 @@ class Decipherkey:
         return key_contents
 
 
-class FolderToLib(Decipherkey):
+class FolderToLib(RecognizeFeatures):
     """
 
 
@@ -89,44 +109,55 @@ class FolderToLib(Decipherkey):
             - Open
     """
     def __init__(self, path_to_folder, lib_type='zoned'):
-        super().__init__()
+        # super().__init__()
         self.path_to_folder = path_to_folder
         self.lib_type = lib_type
 
     def create_report(self):
+        """
+        Each library has different information stored in the report. This library uses the recognize features
+        function to develop reports based on the given library type.
+
+        Returns
+        -------
+        report_info: dict
+            A report containing information associated with the library style
+        """
         files = os.listdir(self.path_to_folder)  # get a list of the files
         slash = platform_specific.get_slash_style()
+        path_to_folder_split = self.path_to_folder.split(slash)
+        if path_to_folder_split[-1] == '':
+            del path_to_folder_split[-1]
 
         report_info: dict = {'file_path': []}  # place to hold the information for the report
 
         for i, file in enumerate(files):
-            # handle zoned rectangles
-            if 'zoned' in self.lib_type:
-                key_contents = self.zoned_rectangle(file)
-            # handle uniform rectangles
-            elif 'uniform' in self.lib_type:
-                if i == 0:
-                    report_info['Nx'] = []
-                    report_info['Ny'] = []
-                path_to_file = self.path_to_folder + slash + file
-                features = self.uniform_layout(path_to_file)
-                report_info['file_path'].append(self.path_to_folder + slash + file)
-                report_info['Nx'].append(features.nx)
-                report_info['Ny'].append(features.ny)
-            else:
-                raise ValueError('The library type input is not currently handled by this object.')
-        if 'zoned' in self.lib_type:
-            # loop through the dictionary containing the keys and append to the report_info dictionary
-            for key in key_contents:
-                # if any of the keys returned in key_contents are not in the report dictionary, put them there
-                if key not in report_info:
+            path_to_file_list = path_to_folder_split + [file]
+            path_to_file = slash.join(path_to_file_list)
+            report_info['file_path'].append(path_to_file)
+            data: dict = fileio.js_r(path_to_file)
+            bf = handle_contents.Borefield(data)
+            # get the relevant information
+            relevant_info = featurerecognition.recognize_features(bf, self.lib_type)
+
+            # load the relevant information into the report_info dictionary
+            for key in relevant_info:
+                if not key in report_info:
                     report_info[key] = []
-                report_info[key].append(key_contents[key])
-            report_info['file_path'].append(self.path_to_folder + platform_specific.get_slash_style() + file)
+                report_info[key].append(relevant_info[key])
 
         return report_info
 
     def create_lib_file(self):
+        """
+        This uses the information in the report to create a library file
+
+        Returns
+        -------
+        library_file: dict
+            A library file to be used stored for use in the package.
+        """
+        lib_info = access.LibraryAccess(lib_style=None, display=False)
 
         library_file = {}
 
@@ -139,6 +170,16 @@ class FolderToLib(Decipherkey):
         n_rows = len(report_info[keys[0]])
 
         for i in range(n_rows):
+            file_path = file_paths[i]
+            Nx = report_info['Nx'][i]
+            Ny = report_info['Ny'][i]
+            # create a key for the library
+            key = lib_info.create_key(Nx, Ny)
+            # if the key is not in the library file dictionary, then key it
+            if key in library_file:
+                pass
+            else:
+                library_file[key] = {}
 
             if 'zoned' in self.lib_type:
                 Nx = report_info['Nx'][i]
@@ -170,6 +211,9 @@ class FolderToLib(Decipherkey):
                 cpgf_output = fileio.js_r(file_path)
 
                 library_file[key] = cpgf_output
+            elif 'U' in self.lib_type or 'Open' in self.lib_type:
+                nested = report_info['nested'][i]
+                library_file[key][nested] = fileio.js_r(file_path)
             else:
                 raise ValueError('The library type input is not currently handled by this object.')
 
