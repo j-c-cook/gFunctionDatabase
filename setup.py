@@ -33,7 +33,8 @@ def pull_first():
     os.chdir(gitdir)
     g = git.cmd.Git(gitdir)
     try:
-        g.execute(['git', 'lfs', 'pull'])
+        g.execute(['git', 'lfs', 'pull'])  # this is for the git-lfs tracked files
+        g.execute(['git', 'submodule', 'update', '--init'])  # this is to pull in the submodule(s)
     except git.exc.GitCommandError:
         raise RuntimeError("Make sure git-lfs is installed!")
     os.chdir(cwd)
