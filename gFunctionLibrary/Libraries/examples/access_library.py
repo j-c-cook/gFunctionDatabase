@@ -22,9 +22,10 @@ def main():
     for key in library_boundaries:
         start = library_boundaries[key][0]
         stop = library_boundaries[key][1]
-        print('({0}, {1}) -> ({2}, {3})'.format(str(start[0]).zfill(2), str(start[1]).zfill(2),
-                                                str(stop[0]).zfill(2), str(stop[1]).zfill(2)))
+        # print('({0}, {1}) -> ({2}, {3})'.format(str(start[0]).zfill(2), str(start[1]).zfill(2),
+        #                                         str(stop[0]).zfill(2), str(stop[1]).zfill(2)))
     r_lib.primary_key_access(m, n)
+    print(r_lib.primary)
     # ---------------------------------------------------
     # ----- Zoned Rectangle Library Access Example ------
 

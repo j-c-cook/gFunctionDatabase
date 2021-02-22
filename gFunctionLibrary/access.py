@@ -123,8 +123,8 @@ class LibraryAccess:
                 Niy = int(sk_split[1])
                 nbh = self.compute_nbh(N, M, Nix, Niy)
                 bf = handle_contents.Borefield(pk_contents[sk])
-                self.primary[nbh] = {'Nx': N,
-                                     'Ny': M,
+                self.primary[nbh] = {'Nx': M,
+                                     'Ny': N,
                                      'Nix': Nix,
                                      'Niy': Niy,
                                      'lib_style': self.lib_style,
