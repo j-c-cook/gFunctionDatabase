@@ -44,6 +44,10 @@ class LibraryAccess:
             additional_path = 'Libraries/zoned_rectangle_5m.json'
         elif self.lib_style == 'rectangle':
             additional_path = 'Libraries/rectangle_5m.json'
+        elif self.lib_style == 'U':
+            additional_path = 'Libraries/U_configurations_5m.json'
+        elif self.lib_style == 'Open':
+            additional_path = 'Libraries/Open_configurations_5m.json'
         else:
             raise ValueError('The requested library is not available.')
         path_to_lib: str = local_path + slash + additional_path
@@ -116,6 +120,19 @@ class LibraryAccess:
                                  'Ny': N,
                                  'lib_style': self.lib_style,
                                  'bf': bf}
+
+        elif self.lib_style == 'U' or self.lib_style == 'Open':
+            # there could be multiple u's
+            for n in self.library[key]:
+                bf = handle_contents.Borefield(self.library[key][n])
+                nbh = len(bf.bore_locations)
+
+                self.primary[nbh] = {'Nx': M,
+                                     'Ny': N,
+                                     'nested': n,
+                                     'lib_style': self.lib_style,
+                                     'bf': bf}
+
         elif self.lib_style == 'zoned':
 
             secondary_keys = list(pk_contents.keys())
@@ -146,7 +163,8 @@ class LibraryAccess:
             The boundaries. Explain further later.
         """
 
-        if self.lib_style == 'rectangle' or self.lib_style == 'zoned':
+        if self.lib_style == 'rectangle' or self.lib_style == 'zoned' or self.lib_style == 'U' or \
+                self.lib_style == 'Open':
             keys = list(self.library.keys())
 
             # find the starting x and y point
@@ -177,7 +195,7 @@ class LibraryAccess:
 
         return library_boundaries
 
-    def compute_nbh(self, Nx: int, Ny: int, Nix: int = None, Niy: int = None):
+    def compute_nbh(self, Nx: int, Ny: int, Nix: int = None, Niy: int = None, nested: int = None):
         """
         Compute the number of boreholes in a borefield
 
@@ -191,6 +209,8 @@ class LibraryAccess:
             Number of boreholes x-direction in the interior rectangle
         Niy: int (optional)
             Number of boreholes in the y-direction in the interior rectangle
+        nested: int (optional)
+            The number of nested shapes, ie. 2 for a double U
 
         Returns
         -------
@@ -200,6 +220,10 @@ class LibraryAccess:
 
         if self.lib_style == 'rectangle':
             nbh = Nx * Ny
+        elif self.lib_style == 'U':
+            raise ValueError('Equation not yet implemented.')
+        elif self.lib_style == 'Open':
+            raise ValueError('Equation not yet implemented.')
         elif self.lib_style == 'zoned':
             nbh = (2 * Nx + 2 * Ny - 4) + Nix * Niy
         else:

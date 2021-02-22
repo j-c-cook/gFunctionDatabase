@@ -3,10 +3,10 @@ A submodule of the GLHE Design Tool, containing libraries of g-functions, access
 
 The libraries of g-functions available are the following:
 
-- [ ] Rectangles (including lines)
-- [ ] Open rectangles
+- [x] Rectangles (including lines)
+- [x] Open rectangles
 - [ ] L configuration
-- [ ] U configuration
+- [x] U configuration
 - [x] Zoned rectangles
 
 # Documentation

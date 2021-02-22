@@ -27,6 +27,16 @@ def main():
     r_lib.primary_key_access(m, n)
     print(r_lib.primary)
     # ---------------------------------------------------
+    # ----- U configuration Library Access Example ------
+    u_lib = gfl.access.LibraryAccess(lib_style='U', display=True)
+    u_lib.primary_key_access(m, n)
+    print(u_lib.primary)
+    # ---------------------------------------------------
+    # ----- Open rectangle Library Access Example ------
+    o_lib = gfl.access.LibraryAccess(lib_style='Open', display=True)
+    o_lib.primary_key_access(m, n)
+    print(o_lib.primary)
+    # ---------------------------------------------------
     # ----- Zoned Rectangle Library Access Example ------
 
     # load up the library into memory
