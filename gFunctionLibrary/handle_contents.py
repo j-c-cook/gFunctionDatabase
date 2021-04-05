@@ -10,6 +10,7 @@ A module that handles the contents of the g-function library
 import matplotlib.pyplot as plt
 import math
 from scipy.interpolate import interp1d, lagrange
+from numpy import log
 
 
 class Borefield:
@@ -245,3 +246,33 @@ class Borefield:
         fig.tight_layout()
 
         return fig, ax
+
+
+def borehole_radius_correction(g_function: list, rb: float, rb_star: float):
+    """
+    Correct the borehole radius. From paper 3 of Eskilson 1987.
+
+
+    .. math::
+        g(\dfrac{t}{t_s}, \dfrac{r_b^*}{H}) = g(\dfrac{t}{t_s}, \dfrac{r_b}{H}) - ln(\dfrac{r_b^*}{r_b})
+
+    Parameters
+    ----------
+    g_function: list
+        A g-function
+    rb: float
+        The current borehole radius
+    rb_star: float
+        The borehole radius that is being corrected to
+
+    Returns
+    -------
+    g_function_corrected: list
+        A corrected g_function
+
+
+    """
+    g_function_corrected = []
+    for i in range(len(g_function)):
+        g_function_corrected.append(g_function[i] - log(rb_star / rb))
+    return g_function_corrected

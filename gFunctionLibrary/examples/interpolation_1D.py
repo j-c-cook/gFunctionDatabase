@@ -40,6 +40,12 @@ def main():
     fig_2.savefig('7x10_g_functions_w_interpolated.png')
     plt.close(fig_2)
 
+    # Consider that the borehole radius of the design is different from the interpolated one
+    rb_design = 0.075  # borehole radius (m)
+    g_function_corrected = gfl.handle_contents.borehole_radius_correction(g_interpolated,
+                                                                          rb_interpolated,
+                                                                          rb_design)
+
 
 if __name__ == '__main__':
     main()
