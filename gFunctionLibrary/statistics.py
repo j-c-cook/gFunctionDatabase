@@ -38,3 +38,26 @@ def mpe(actual: list, predicted: list) -> float:
         summation += (actual[i] - predicted[i]) / actual[i]
     mean_percent_error = summation * 100 / len(actual)
     return mean_percent_error
+
+
+def root_mean_square_error(actual: list, predicted: list) -> float:
+    """
+    Return the root mean squared error between two g-function curves.
+
+    Parameters
+    ----------
+    actual: list
+        The actual computed g-function values
+    predicted: list
+        The predicted g-function values
+
+    Returns
+    -------
+    **r_mean : float**
+        The root mean square error between the g-function curves
+    """
+    values = []
+    for i in range(len(actual)):
+        values.append(((actual[i] - predicted[i]) / actual[i]) ** 2)
+    r_mean = (sum(values) / len(values)) ** 0.5
+    return r_mean * 100
