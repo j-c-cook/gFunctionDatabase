@@ -10,6 +10,7 @@ A module for handling data entering (input) or leaving (output).
 import json
 import os
 import pandas as pd
+from . import platform_specific
 
 
 def path_exists(path_to_file: str):
@@ -67,7 +68,8 @@ def create_dir_if_not(path_to_folder: str):
     Parameters
     ----------
     path_to_folder: str
-        A file path (absolute or relative) to a folder that may or may not exist yet
+        A file path (absolute or relative) to a folder that may or may not
+        exist yet
 
     Returns
     -------
@@ -96,7 +98,8 @@ def export_dict(d: dict, path_to_output: str, file_ext: str = None):
     -------
     None
     """
-    # if there is no file extension provided, then check what is on the file path
+    # if there is no file extension provided,
+    # then check what is on the file path
     if file_ext is None:
         split_path = path_to_output.split('.')
         file_ext = split_path[-1]
@@ -108,4 +111,72 @@ def export_dict(d: dict, path_to_output: str, file_ext: str = None):
     elif file_ext == 'json':
         js_dump(d, path_to_output)
     else:
-        raise ValueError('The file extension requested is not yet accounted for in this function.')
+        raise ValueError('The file extension requested is not yet accounted '
+                         'for in this function.')
+
+
+def read_file(path_to_file: str) -> dict:
+    """
+    Read in json, xlsx or csv file into a dictionary
+
+    Parameters
+    ----------
+    path_to_file : str
+        Path to the input file
+
+    Returns
+    -------
+    (dn_out, file_name) : tuple
+        A dictionary of the contents of the file
+        The file name without the extension
+    """
+
+    def remove_unnamed_columns(dataframe) -> None:
+        """
+        There are often unnamed columns when you read in pandas data frames,
+        try to remove those, if not then pass
+        :param dataframe: a pandas dataframe which has been read in
+        :return: the dataframe
+        """
+        # try to get rid of the unnamed columns
+        try:
+            dataframe = dataframe.\
+                            loc[:, ~dataframe.columns.str.contains('^Unnamed')]
+        except:
+            pass
+        return dataframe
+
+    # determine the file type
+    slash = platform_specific.get_slash_style()
+
+    file_name = path_to_file.split(slash)[-1]
+    file_ext = file_name.split('.')[-1]
+
+    # if the file is a json file
+    if file_ext == 'json':
+        with open(path_to_file, 'r') as myfile:
+            data = myfile.read()
+        dn_out = json.loads(data)
+    elif file_ext == 'xlsx' or file_ext == 'xls':
+        xlsx = pd.ExcelFile(path_to_file)
+        sheet_names = xlsx.sheet_names
+        if len(sheet_names) == 1:
+            df = pd.read_excel(xlsx, sheet_names[0])
+            df = remove_unnamed_columns(df)
+            dn_out = df.to_dict('list')
+        else:
+            dn_out = {}
+            for i in range(len(sheet_names)):
+                df = pd.read_excel(xlsx, sheet_names[i])
+                df = remove_unnamed_columns(df)
+                dn_out[sheet_names[i]] = df.to_dict('list')
+    elif file_ext == 'csv':
+        df = pd.read_csv(path_to_file)
+        df = remove_unnamed_columns(df)
+        dn_out = df.to_dict('list')
+    # add else if statements for other file types
+    else:
+        raise ValueError('The extension {} is not currently handled by this '
+                         'function'.format(file_ext))
+
+    return dn_out, file_name
