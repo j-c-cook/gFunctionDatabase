@@ -9,7 +9,7 @@ for the following libraries:/media/jackcook/SHARED/Documents/Oklahoma_State/Mast
 - Zoned Rectangles
 """
 
-import gFunctionLibrary as gfl
+import gFunctionDatabase as gfl
 
 
 def main():
