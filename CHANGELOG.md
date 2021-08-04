@@ -8,6 +8,10 @@
 - [Issue 12](https://github.com/j-c-cook/gFunctionLibrary/issues/12) - Adds in a `Reports/` folder. A report written for Oak Ridge National Laboratory is the first of the reports to be included in the reports folder. The g-function library over view report discusses the contents of the library and how it was computed.
 - [Issue 11](https://github.com/j-c-cook/gFunctionLibrary/issues/11) - Adds in acknowledgments to Oak Ridge National Laboratory and Dr. Jeffrey Spitler in the README file.
 
+### New features
+
+- [Issue 14](https://github.com/j-c-cook/gFunctionLibrary/issues/14) - A Python `tests/` folder is created and a yml file is created that runs tests on a local server. 
+
 ## Version 0.1.12 (2021-05-18)
 
 ### New features
