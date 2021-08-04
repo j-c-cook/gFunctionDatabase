@@ -51,7 +51,6 @@ def find_data_files(file_ext='json'):
     >>> import gFunctionDatabase as gfdb
     >>> path_to_database, available_data_files = \
         gfdb.Database.available.find_data_files()
-
     """
     # get forward or backward slash based on OS
     slash = General.platform_specific.get_slash_style()
