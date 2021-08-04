@@ -18,7 +18,7 @@ Wednesday, September 30, 2020
         - find_line
     Can now determine features associated uniform fields containing rectangular convexes
 Saturday, February 20, 2021
-    Finds a home in the gFunctionLibrary
+    Finds a home in the gFunctionDatabase
 """
 
 from scipy.spatial import ConvexHull

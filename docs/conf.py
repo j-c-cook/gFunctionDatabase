@@ -16,17 +16,17 @@ import sys
 packagePath = os.path.normpath(
         os.path.join(os.path.normpath(os.path.dirname(__file__)), '..'))
 sys.path.append(packagePath)
-import gFunctionLibrary
+import gFunctionDatabase
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'gFunctionLibrary'
+project = 'gFunctionDatabase'
 copyright = '2021, Jack C. Cook'
 author = 'Jack C. Cook'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.12'
+release = '0.2'
 
 
 # -- General configuration ---------------------------------------------------
@@ -40,13 +40,8 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.githubpages',
               'sphinxcontrib.bibtex',
               'sphinx.ext.autosummary',
-              # 'sphinxcontrib.inlinesyntaxhighlight',
-              # 'cloud_sptheme.ext.index_styling',
-              # 'cloud_sptheme.ext.relbar_toc',
-              # 'cloud_sptheme.ext.issue_tracker',
               'numpydoc',
               'sphinx.ext.napoleon']
-            # 'cloud_sptheme.ext.escaped_samp_]
 bibtex_bibfiles=['references.bib']
 autosummary_generate = True  # Turn on sphinx.ext.autosummary
 bibtex_default_style = 'unsrt'
