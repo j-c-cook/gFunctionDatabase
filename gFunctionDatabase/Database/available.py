@@ -5,6 +5,30 @@ from gFunctionDatabase import General
 import os
 
 
+class Configuration:
+    """
+    This object serves as the base object for several of the g-function database
+    management modules. The two instances of this object define the number of
+    json levels and the number of keys used on each level.
+    """
+    def __init__(self):
+        # Define the number of levels in the json file
+        self.levels = {'L': 1, 'LopU': 2, 'Open': 2, 'U': 2, 'rectangle': 1,
+                       'zoned': 2}
+        # Reusable dictionaries for the number of primary and secondary keys
+        two_and_none = {'primary': 2, 'secondary': None}
+        two_and_one = {'primary': 2, 'secondary': 1}
+        two_and_two = {'primary': 2, 'secondary': 2}
+        # Defines the number of keys for primary and secondary values in
+        # each configuration
+        self.number_of_keys = {'L': two_and_none,
+                               'rectangle': two_and_none,
+                               'LopU': two_and_one,
+                               'Open': two_and_one,
+                               'U': two_and_one,
+                               'zoned': two_and_two}
+
+
 def find_data_files(file_ext='json'):
     """
     This function finds the path and the available database data files.
