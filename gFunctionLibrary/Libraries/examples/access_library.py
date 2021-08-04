@@ -8,7 +8,7 @@ Provide an example on how to access the following libraries:
 - zoned rectangle
 """
 
-import gFunctionDatabase as gfl
+import gFunctionLibrary as gfl
 
 
 def main():

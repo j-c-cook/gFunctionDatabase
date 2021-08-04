@@ -256,14 +256,14 @@ class ZonedRectangle(CoordinateGeneratorBase):
         """
         This function is called if the optional inputs Nix and Niy are not provided. This will
         create all of the zoned rectangles given Nx, Ny and B. A while loop continuously calls
-        :func:`gFunctionDatabase.coordinate_generator.ZonedRectangle.reduce_i_rect` until all of
+        :func:`gFunctionLibrary.coordinate_generator.ZonedRectangle.reduce_i_rect` until all of
         the zoned rectangles have been created.
 
         Returns
         -------
         None
             The coordinates are stored in self.coordinates(), an instance of
-            :func:`gFunctionDatabase.coordinate_generator.CoordinateGeneratorBase` made available
+            :func:`gFunctionLibrary.coordinate_generator.CoordinateGeneratorBase` made available
             because Base is a child.
 
         """
