@@ -9,7 +9,7 @@ The following goals will be accomplished in this example:
     2) proof that interpolation over B/H is accurate
 """
 
-import gFunctionDatabase as gfl
+import gFunctionLibrary as gfl
 import matplotlib.pyplot as plt
 from scipy.interpolate import lagrange
 

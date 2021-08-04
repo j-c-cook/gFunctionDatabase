@@ -4,7 +4,7 @@
 """
 **access.py**
 
-A module that provides access to .json library files located in `Database/`
+A module that provides access to .json library files located in `Libraries/`
 """
 
 import os
@@ -41,13 +41,13 @@ class LibraryAccess:
         slash = platform_specific.get_slash_style()  # get platform specific slash
         local_path = os.path.dirname(os.path.abspath(__file__))  # the path to this file
         if self.lib_style == 'zoned':
-            additional_path = 'Database/zoned_rectangle_5m.json'
+            additional_path = 'Libraries/zoned_rectangle_5m.json'
         elif self.lib_style == 'rectangle':
-            additional_path = 'Database/rectangle_5m.json'
+            additional_path = 'Libraries/rectangle_5m.json'
         elif self.lib_style == 'U':
-            additional_path = 'Database/U_configurations_5m.json'
+            additional_path = 'Libraries/U_configurations_5m.json'
         elif self.lib_style == 'Open':
-            additional_path = 'Database/Open_configurations_5m.json'
+            additional_path = 'Libraries/Open_configurations_5m.json'
         else:
             raise ValueError('The requested library is not available.')
         path_to_lib: str = local_path + slash + additional_path

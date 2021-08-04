@@ -1,7 +1,7 @@
 # Jack C. Cook
 # Saturday, February 6, 2021
 
-import gFunctionDatabase as gfl
+import gFunctionLibrary as gfl
 from natsort import natsorted
 from PIL import Image
 import os

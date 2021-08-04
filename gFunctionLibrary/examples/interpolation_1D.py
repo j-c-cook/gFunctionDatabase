@@ -7,7 +7,7 @@
 This example focuses on 1D interpolation over B/H ratios
 """
 
-import gFunctionDatabase as gfl
+import gFunctionLibrary as gfl
 import matplotlib.pyplot as plt
 
 
