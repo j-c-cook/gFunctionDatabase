@@ -1,4 +1,7 @@
-# Contributing to cpgfunction
+# Contributing standards
+
+Note: These are to be used as a general outline to contributing, not 
+strict rules to abide by. 
 
 ## Git
 
