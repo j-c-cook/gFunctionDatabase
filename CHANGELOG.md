@@ -2,6 +2,10 @@
 
 ## Current version
 
+### Changes
+
+- [Issue 17](https://github.com/j-c-cook/gFunctionLibrary/issues/17) - The projects name is modified from `gFunctionLibrary` to `gFunctionDatabase` to more accurately describe its contents. The database contains both the data and the database management system (DBMS). 
+
 ### Documents
 
 - [Issue 13](https://github.com/j-c-cook/gFunctionLibrary/issues/13) - Update the table of contents in the README with the library contents from the Oak Ridge report. 

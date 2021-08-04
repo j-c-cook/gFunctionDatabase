@@ -118,7 +118,7 @@ The changes should fall under one of the following categories:
 - New features - for new features
 - Enhancements - for improvements made to code performance and functionality
 - Maintenance - for tidying code
-- Changes - for changes in functionality of the code
+- Changes - for changes to API and/or functionality of the code
 - Deprecates - for soon-to-be removed features
 - Removes - for removed features
 - Fixes - for any bug fixes

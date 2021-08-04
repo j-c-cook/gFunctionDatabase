@@ -16,12 +16,12 @@ import sys
 packagePath = os.path.normpath(
         os.path.join(os.path.normpath(os.path.dirname(__file__)), '..'))
 sys.path.append(packagePath)
-import gFunctionLibrary
+import gFunctionDatabase
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'gFunctionLibrary'
+project = 'gFunctionDatabase'
 copyright = '2021, Jack C. Cook'
 author = 'Jack C. Cook'
 
