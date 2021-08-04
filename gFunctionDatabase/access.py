@@ -2,7 +2,7 @@
 # Tuesday, February 2, 2020
 
 """
-**access.py**
+**available.py**
 
 A module that provides access to .json library files located in `Database/`
 """
