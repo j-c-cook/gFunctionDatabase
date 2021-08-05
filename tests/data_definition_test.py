@@ -12,7 +12,8 @@ def get_current_registry():
 class TestDataDefinition(unittest.TestCase):
 
     def setUp(self):
-        self.registry_keys = ['L', 'LopU', 'Open', 'U', 'rectangle', 'zoned']
+        self.registry_keys = ['C', 'L', 'LopU', 'Open', 'U', 'rectangle',
+                              'zoned']
 
     def test_registry_keys(self):
         available_registry_keys = list(get_current_registry().keys())
