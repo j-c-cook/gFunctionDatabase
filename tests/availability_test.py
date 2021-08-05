@@ -5,7 +5,7 @@ from natsort.natsort import natsorted
 
 
 def get_current_available_data_files():
-    _, available_data_files = gfdb.Database.available.find_data_files()
+    _, available_data_files = gfdb.Data.available.find_data_files()
     return natsorted(available_data_files)
 
 

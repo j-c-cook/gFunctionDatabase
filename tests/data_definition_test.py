@@ -5,7 +5,7 @@ import gFunctionDatabase as gfdb
 
 def get_current_registry():
     data_definition_base = \
-        gfdb.DatabaseManagement.data_definition.BaseDefinition()
+        gfdb.Management.data_definition.BaseDefinition()
     return data_definition_base.registry
 
 

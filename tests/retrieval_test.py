@@ -16,7 +16,7 @@ class TestRetrieval(unittest.TestCase):
     def test_configuration_count(self):
         current_configuration_count = {}
         base_retrieval = \
-            gfdb.DatabaseManagement.retrieval.BaseRetrieval()
+            gfdb.Management.retrieval.BaseRetrieval()
         for key in base_retrieval.levels:
             configuration = base_retrieval.load_data(key)
             count = len(list(configuration.keys()))
