@@ -55,9 +55,13 @@ setup(name='gFunctionDatabase',
       long_description=long_description,
       long_description_content_type='text/markdown',
       version='0.2',
-      packages=['gFunctionDatabase'],
+      packages=['gFunctionDatabase',
+                'gFunctionDatabase.Data',
+                'gFunctionDatabase.General',
+                'gFunctionDatabase.Management'],
       include_package_data=True,
       author='Jack C. Cook',
       author_email='jack.cook@okstate.edu',
-      description='A submodule of the GLHE Design Tool, containing libraries of '
-                  'g-functions, access and accurate interpolation')
+      description='A g-function database with a database management system '
+                  'for data retrieval, updates and application to be used in'
+                  'geothermal ground heat exchanger design.')
