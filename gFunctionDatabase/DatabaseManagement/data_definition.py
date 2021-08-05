@@ -10,7 +10,7 @@ class _BaseDefinition(gfdb.Database.available.Configuration):
     """
     def __init__(self):
         super().__init__()
-        self.database = self.register_database()
+        self.registry = self.register_database()
 
     @staticmethod
     def register_database():
@@ -20,12 +20,12 @@ class _BaseDefinition(gfdb.Database.available.Configuration):
 
         Returns
         -------
-        database : dict
+        registry : dict
             A dictionary with the keys being L, LopU, Open, U, rectangle and
             zoned. The values for each dictionary is the full file path to the
             configuration json.
         """
-        database = {}
+        registry = {}
 
         path_to_database, available_data_files = \
             gfdb.Database.available.find_data_files()
@@ -35,7 +35,7 @@ class _BaseDefinition(gfdb.Database.available.Configuration):
         data_file_keys = [f.split('_')[0] for f in available_data_files_sorted]
 
         for i in range(len(data_file_keys)):
-            database[data_file_keys[i]] = \
+            registry[data_file_keys[i]] = \
                 path_to_database + available_data_files_sorted[i]
 
-        return database
+        return registry
