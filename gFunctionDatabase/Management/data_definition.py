@@ -1,9 +1,9 @@
-from gFunctionDatabase import Database
+from gFunctionDatabase import Data
 
 from natsort.natsort import natsorted
 
 
-class BaseDefinition(Database.available.Configuration):
+class BaseDefinition(Data.available.Configuration):
     """
     This is the base class for the data definition module. This will be the base
     class for all objects in this module, and likely other modules.
@@ -28,7 +28,7 @@ class BaseDefinition(Database.available.Configuration):
         registry = {}
 
         path_to_database, available_data_files = \
-            Database.available.find_data_files()
+            Data.available.find_data_files()
 
         available_data_files_sorted = natsorted(available_data_files)
 
