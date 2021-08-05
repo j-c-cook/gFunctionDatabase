@@ -48,16 +48,20 @@ this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-setup(name='gFunctionLibrary',
+setup(name='gFunctionDatabase',
       install_requires=['matplotlib', 'numpy', 'Pillow', 'scipy', 'pandas', 'natsort'],
-      url='https://github.com/j-c-cook/gFunctionLibrary',
-      download_url='https://github.com/j-c-cook/gFunctionLibrary/archive/v0.1.14.tar.gz',
+      url='https://github.com/j-c-cook/gFunctionDatabase',
+      download_url='https://github.com/j-c-cook/gFunctionDatabase/archive/v0.2.tar.gz',
       long_description=long_description,
       long_description_content_type='text/markdown',
-      version='0.1.14',
-      packages=['gFunctionLibrary', 'gFunctionLibrary.UniformConfigurations.UniformConfigurations'],
+      version='0.2',
+      packages=['gFunctionDatabase',
+                'gFunctionDatabase.Data',
+                'gFunctionDatabase.General',
+                'gFunctionDatabase.Management'],
       include_package_data=True,
       author='Jack C. Cook',
       author_email='jack.cook@okstate.edu',
-      description='A submodule of the GLHE Design Tool, containing libraries of '
-                  'g-functions, access and accurate interpolation')
+      description='A g-function database with a database management system '
+                  'for data retrieval, updates and application to be used in'
+                  'geothermal ground heat exchanger design.')

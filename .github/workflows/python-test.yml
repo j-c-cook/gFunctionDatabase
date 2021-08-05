@@ -1,0 +1,11 @@
+name: Test
+on: [push]
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - name: Prepare repo
+        uses: actions/checkout@master
+      - name: Test
+        uses: onichandame/python-test-action@master
+
