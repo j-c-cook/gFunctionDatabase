@@ -3,18 +3,22 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-gFunctionLibrary Documentation
+gFunctionDatabase Documentation
 =========================================================
-The source code for this project can be found on github at https://github.com/j-c-cook/gFunctionLibrary.
+
+Overview
+----------
+
+The source code for this project can be found on github at https://github.com/j-c-cook/gFunctionDatabase.
 
 Installation
 --------------
-The `gFunctionLibrary <https://pypi.org/project/gFunctionLibrary/>`_ package has been uploaded to
+The `gFunctionLibrary <https://pypi.org/project/gFunctionDatabase/>`_ package has been uploaded to
 `PyPi <https://pypi.org>`_. Install the library via pip:
 
 .. code-block:: none
 
-   pip install gFunctionLibrary
+   pip install gFunctionDatabase
 
 As long as you are connected to the internet, pip will download and install the package directly from
 PyPi. If you would like to install a specific version, then you need to specify. For example, if you
@@ -22,25 +26,7 @@ would like to install version 0.1.9, then the following command is needed:
 
 .. code-block:: none
 
-   pip install gFunctionLibrary==0.1.9
-
-Modules and examples
-----------------------
-
-.. toctree::
-   :maxdepth: 2
-
-   modules
-   examples
-
-Libraries and examples
--------------------------
-
-.. toctree::
-   :maxdepth: 2
-
-   libraries
-   lib_examples
+   pip install gFunctionDatabase==0.2
 
 References
 -------------
