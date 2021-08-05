@@ -13,8 +13,8 @@ class Configuration:
     """
     def __init__(self):
         # Define the number of levels in the json file
-        self.levels = {'L': 1, 'LopU': 2, 'Open': 2, 'U': 2, 'rectangle': 1,
-                       'zoned': 2}
+        self.levels = {'C': 1, 'L': 1, 'LopU': 2, 'Open': 2, 'U': 2,
+                       'rectangle': 1, 'zoned': 2}
         # Reusable dictionaries for the number of primary and secondary keys
         two_and_none = {'primary': 2, 'secondary': None}
         two_and_one = {'primary': 2, 'secondary': 1}
