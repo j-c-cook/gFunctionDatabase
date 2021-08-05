@@ -1,9 +1,9 @@
-import gFunctionDatabase as gfdb
+from gFunctionDatabase import Database
 
 from natsort.natsort import natsorted
 
 
-class BaseDefinition(gfdb.Database.available.Configuration):
+class BaseDefinition(Database.available.Configuration):
     """
     This is the base class for the data definition module. This will be the base
     class for all objects in this module, and likely other modules.
@@ -28,7 +28,7 @@ class BaseDefinition(gfdb.Database.available.Configuration):
         registry = {}
 
         path_to_database, available_data_files = \
-            gfdb.Database.available.find_data_files()
+            Database.available.find_data_files()
 
         available_data_files_sorted = natsorted(available_data_files)
 
