@@ -1,6 +1,6 @@
 from . import General
 from . import Database
-from . import DatabaseManagement
+from . import Management
 from . import statistics
 from . import fileio
 from . import handle_contents
