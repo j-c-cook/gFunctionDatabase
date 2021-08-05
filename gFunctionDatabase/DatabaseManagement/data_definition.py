@@ -3,7 +3,7 @@ import gFunctionDatabase as gfdb
 from natsort.natsort import natsorted
 
 
-class _BaseDefinition(gfdb.Database.available.Configuration):
+class BaseDefinition(gfdb.Database.available.Configuration):
     """
     This is the base class for the data definition module. This will be the base
     class for all objects in this module, and likely other modules.

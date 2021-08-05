@@ -7,3 +7,5 @@ from . import folder_to_lib
 from . import platform_specific
 from . import featurerecognition
 from . import Database
+from . import DatabaseManagement
+from . import General
