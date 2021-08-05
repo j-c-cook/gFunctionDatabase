@@ -6,7 +6,7 @@ Create_Branch.sh
 .idea/
 
 # Ignore pycache folders created by Pycharm
-gFunctionDatabase/Database/__pycache__/
+gFunctionDatabase/Data/__pycache__/
 gFunctionDatabase/Management/__pycache__/
 gFunctionDatabase/General/__pycache__/
 gFunctionDatabase/__pycache__/

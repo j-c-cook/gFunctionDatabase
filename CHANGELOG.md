@@ -1,6 +1,6 @@
 # History of changes
 
-## Current version
+## Version 0.2 (2020-08-05)
 
 ### Changes
 
@@ -18,8 +18,8 @@
 
 ### New features
 
-- [Issue 25](https://github.com/j-c-cook/gFunctionDatabase/issues/25) - A base object for [retrieval.py]() is added. The object has a load_data method that takes in a configuration string argument, loads the specific database configuration file into memory and returns the entire file as a dictionary.
-- [Issue 24](https://github.com/j-c-cook/gFunctionDatabase/issues/24) - A base object for the database management module [data_definition.py]() is created. The object registers the available configurations into an instance refered to as `registry`. The registry contains quick access to the path of a configuration given a key input of L, U, LopU, Open, rectangle or zoned.  
+- [Issue 25](https://github.com/j-c-cook/gFunctionDatabase/issues/25) - A base object for [retrieval.py](https://github.com/j-c-cook/gFunctionDatabase/tree/main/gFunctionDatabase/Management/retrieval.py) is added. The object has a load_data method that takes in a configuration string argument, loads the specific database configuration file into memory and returns the entire file as a dictionary.
+- [Issue 24](https://github.com/j-c-cook/gFunctionDatabase/issues/24) - A base object for the database management module [data_definition.py](https://github.com/j-c-cook/gFunctionDatabase/tree/main/gFunctionDatabase/Management/data_definition.py) is created. The object registers the available configurations into an instance refered to as `registry`. The registry contains quick access to the path of a configuration given a key input of L, U, LopU, Open, rectangle or zoned.  
 - [Issue 23](https://github.com/j-c-cook/gFunctionDatabase/issues/23) - A function named find_data_files is defined in [available.py](https://github.com/j-c-cook/gFunctionDatabase/tree/main/gFunctionDatabase/Database/available.py) that locates and returns the file paths of all the configurations in the database.
 - [Issue 22](https://github.com/j-c-cook/gFunctionDatabase/issues/22) - A configuration object is added to the [available.py](https://github.com/j-c-cook/gFunctionDatabase/tree/main/gFunctionDatabase/Database/available.py) module. This class seeks to serve as the base class for many of the database management modules. The instances provided here are user defined and pertain to the json levels. 
 - [Issue 14](https://github.com/j-c-cook/gFunctionLibrary/issues/14) - A Python `tests/` folder is created and a yml file is created that runs tests on a local server. 
