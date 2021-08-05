@@ -6,6 +6,9 @@ import gFunctionDatabase as gfdb
 class TestRetrieval(unittest.TestCase):
 
     def setUp(self):
+        # TODO: Discuss the count of libraries with Dr. Spitler.
+        # ....: Should we not have the same number of NxM base dimensions
+        # ....: for all cases?
         self.configuration_count = {'C': 465, 'L': 495, 'LopU': 465,
                                     'Open': 871, 'U': 1177, 'rectangle': 1651,
                                     'zoned': 410}
