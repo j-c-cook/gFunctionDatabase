@@ -75,7 +75,6 @@ html_theme_options = {"roottarget": "index",
                        "logotarget": "index",
                        "googleanalytics_id": "UA-53205480-2",
                        "default_layout_text_size": "85%"}
-                       # "table_style_default_align": "left"
 from sphinx.builders.html import StandaloneHTMLBuilder
 StandaloneHTMLBuilder.supported_image_types = [
     'image/svg+xml',
