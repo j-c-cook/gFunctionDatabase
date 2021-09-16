@@ -39,7 +39,7 @@ def pull_first():
         raise RuntimeError("Make sure git-lfs is installed!")
     os.chdir(cwd)
 
-pull_first()
+# pull_first()
 
 # read the contents of your README file
 # https://packaging.python.org/guides/making-a-pypi-friendly-readme/#including-your-readme-in-your-package-s-metadata
@@ -49,12 +49,17 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(name='gFunctionDatabase',
-      install_requires=['matplotlib', 'numpy', 'Pillow', 'scipy', 'pandas', 'natsort'],
+      install_requires=['matplotlib>=3.3.4',
+                        'numpy>=1.19.2',
+                        'Pillow>=8.1.0',
+                        'scipy>=1.6.2',
+                        'pandas>=1.3.2',
+                        'natsort>=7.1.1'],
       url='https://github.com/j-c-cook/gFunctionDatabase',
-      download_url='https://github.com/j-c-cook/gFunctionDatabase/archive/v0.2.tar.gz',
+      download_url='https://github.com/j-c-cook/gFunctionDatabase/archive/v0.2.1.tar.gz',
       long_description=long_description,
       long_description_content_type='text/markdown',
-      version='0.2',
+      version='0.2.1',
       packages=['gFunctionDatabase',
                 'gFunctionDatabase.Data',
                 'gFunctionDatabase.General',
