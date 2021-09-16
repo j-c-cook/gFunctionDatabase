@@ -23,7 +23,7 @@ import gFunctionDatabase
 
 project = 'gFunctionDatabase'
 copyright = '2021, Jack C. Cook'
-author = 'Jack C. Cook'
+author = 'Jack C. Cook, Jeffrey D. Spitler & Timothy West'
 
 # The full version, including alpha/beta/rc tags
 release = '0.2'
@@ -44,7 +44,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.napoleon']
 bibtex_bibfiles=['references.bib']
 autosummary_generate = True  # Turn on sphinx.ext.autosummary
-bibtex_default_style = 'unsrt'
+bibtex_default_style = 'plain'
 
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ['_templates']
@@ -90,3 +90,9 @@ StandaloneHTMLBuilder.supported_image_types = [
 # html_static_path = ['_static']
 
 numfig = True
+
+# make latex pdf build single pages
+# https://stackoverflow.com/a/5741112/11637415
+latex_elements = {
+  'extraclassoptions': 'openany,oneside'
+}

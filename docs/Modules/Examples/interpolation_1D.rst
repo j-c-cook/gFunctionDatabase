@@ -156,6 +156,6 @@ g-function is added and the plot presented in :numref:`interp_1D_fig_3`
 Source Code
 --------------
 
-.. literalinclude:: ../../../gFunctionLibrary/examples/interpolation_1D.py
+.. literalinclude:: ../../../gFunctionDatabase/examples/interpolation_1D.py
     :language: python
     :linenos:

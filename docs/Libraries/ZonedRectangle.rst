@@ -4,7 +4,7 @@
 Zoned Rectangles
 **********************
 This documents the contents, creation and access of the zoned rectangle library.
-See :doc:`Examples/ZRectExample` for an example of how the :func:`gFunctionLibrary.coordinate_generator.ZonedRectangle`
+See :doc:`Examples/ZRectExample` for an example of how the :func:`gFunctionDatabase.coordinate_generator.ZonedRectangle`
 class operates.
 
 Contents
@@ -30,7 +30,7 @@ Create Library File
 Here's an example of how to provide the path/to/output/ directory containing cpgfunction output files. The files are
 merged into a single library.json file.
 
-.. literalinclude:: ../gFunctionLibrary/Libraries/examples/output_to_library.py
+.. literalinclude:: ../../gFunctionDatabase/Data/examples/output_to_library.py
     :language: python
     :linenos:
 

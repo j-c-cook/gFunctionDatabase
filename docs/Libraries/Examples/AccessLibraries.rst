@@ -7,6 +7,6 @@ Access Libraries
 
 Source Code
 --------------
-.. literalinclude:: ../../../gFunctionLibrary/Libraries/examples/access_library.py
+.. literalinclude:: ../../../gFunctionDatabase/Data/examples/access_library.py
     :language: python
     :linenos:
