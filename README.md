@@ -16,7 +16,7 @@ The libraries of g-functions available are the following:
 | LopU (Lopsided U)  	| 9455            	| These configurations consist of U cases that have had some number of boreholes removed from their right side. These configurations all have a single rows of perimeter boreholes. The secondary key is an integer that is represented by the number of boreholes removed. There are two keys required to access a specific configuration.                                                                                                                       	|
 
 # Documentation
-See the online documentation at <a href="https://gfunctionlibrary.readthedocs.io/en/latest/" target="_blank">ReadTheDocs</a> and an offline [g-function library guide](https://github.com/j-c-cook/gFunctionLibrary/tree/main/Reports/g-function_library_overview.pdf) report in pdf format. 
+See the online documentation at <a href="https://gFunctiondatabase.readthedocs.io/en/latest/" target="_blank">ReadTheDocs</a> and an offline [g-function library guide](https://github.com/j-c-cook/gFunctionLibrary/tree/main/Reports/g-function_library_overview.pdf) report in pdf format. 
 
 # Acknowledgements
 

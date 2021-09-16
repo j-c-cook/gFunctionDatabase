@@ -8,7 +8,7 @@ have been computed using the methodology of Cimmino and Bernier (2014) :cite:`Ci
 borehole wall temperature (UBHWT) boundary condition with 12 segments is used, this was the closest when compared
 to Eskilson. Specifically, this is boundary condition 3 in Cimmino and Bernier (2014). Cimmino went on to implement the g-function calculation
 in an open source Python package known as `pygfunction <https://github.com/MassimoCimmino/pygfunction>`_,
-which is published on the `Python Package Index (PyPI) <https://pypi.org/project/pygfunction/>`_ :cite:`pygfunction`.
+which is published on the `Python Package Index (PyPI) <https://pypi.org/project/pygfunction/>`_ :cite:`Cimmino_2018b`.
 Further improvements to the g-function calculation methodology are detailed in Cimmino (2018)
 :cite:`Cimmino_2018`. The g-functions in this example are computed using a computationally improved version of
 Massimo Cimmino's methodology, which is discussed in Cook and Spitler (2021) :cite:`Cook_Spitler_2021`.
@@ -365,6 +365,6 @@ An interpolated g-function (using `cubic interpolation`) is now plotted on an up
 Source Code
 --------------
 
-.. literalinclude:: ../../../gFunctionLibrary/examples/dimensioning_rules.py
+.. literalinclude:: ../../../gFunctionDatabase/examples/dimensioning_rules.py
     :language: python
     :linenos:

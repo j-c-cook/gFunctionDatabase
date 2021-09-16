@@ -21,12 +21,53 @@ class Configuration:
         two_and_two = {'primary': 2, 'secondary': 2}
         # Defines the number of keys for primary and secondary values in
         # each configuration
-        self.number_of_keys = {'L': two_and_none,
-                               'rectangle': two_and_none,
-                               'LopU': two_and_one,
-                               'Open': two_and_one,
-                               'U': two_and_one,
-                               'zoned': two_and_two}
+        # the secondary types:
+        #   r: reduction
+        #   t: thickness
+        #   pair: (x, y) pair
+        self.secondary_type = {'L': None,
+                               'rectangle': None,
+                               'LopU': 'r',
+                               'Open': 't',
+                               'U': 't',
+                               'zoned': 'pair'}
+
+    def compute_nbh(self, configuration, Nx: int, Ny: int, Nix: int = None,
+                    Niy: int = None, nested: int = None):
+        """
+        Compute the number of boreholes in a borefield
+
+        Parameters
+        ----------
+        Nx: int
+            Number of boreholes in the x-direction
+        Ny: int
+            Number of boreholes in the y-direction
+        Nix: int (optional)
+            Number of boreholes x-direction in the interior rectangle
+        Niy: int (optional)
+            Number of boreholes in the y-direction in the interior rectangle
+        nested: int (optional)
+            The number of nested shapes, ie. 2 for a double U
+
+        Returns
+        -------
+        nbh: int
+            Number of boreholes in the field
+        """
+
+        if configuration == 'rectangle':
+            nbh = Nx * Ny
+        elif configuration == 'U':
+            raise ValueError('Equation not yet implemented.')
+        elif configuration == 'Open':
+            raise ValueError('Equation not yet implemented.')
+        elif configuration == 'zoned':
+            nbh = (2 * Nx + 2 * Ny - 4) + Nix * Niy
+        else:
+            raise ValueError('Library unavailable')
+
+        return nbh
 
 
 def find_data_files(file_ext='json'):

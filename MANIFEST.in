@@ -1,5 +1,8 @@
-include gFunctionLibrary/Libraries/Open_configurations_5m.json
-include gFunctionLibrary/Libraries/rectangle_5m.json
-include gFunctionLibrary/Libraries/U_configurations_5m.json
-include gFunctionLibrary/Libraries/zoned_rectangle_5m.json
+include gFunctionDatabase/Data/Open_configurations_5m.json
+include gFunctionDatabase/Data/rectangle_5m.json
+include gFunctionDatabase/Data/U_configurations_5m.json
+include gFunctionDatabase/Data/zoned_rectangle_5m.json
+include gFunctionDatabase/Data/C_configurations_5m.json
+include gFunctionDatabase/Data/L_configurations_5m.json
+include gFunctionDatabase/Data/LopU_configurations_5m.json
 include requirements.txt

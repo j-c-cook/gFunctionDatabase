@@ -3,7 +3,7 @@
 **********************************
 Generate Zoned Rectangle
 **********************************
-This example shows how to make use of :func:`gFunctionLibrary.coordinate_generator.ZonedRectangle`
+This example shows how to make use of :func:`gFunctionDatabase.coordinate_generator.ZonedRectangle`
 to create a series of rectangles with an outer perimeter (fixed spacing) base case
 of 7x12.
 
@@ -17,7 +17,7 @@ of 7x12.
     field.
 
 The files are stored in a key: value dictionary. The key for zoned rectangles is created in the function
-:func:`gFunctionLibrary.coordinate_generator.ZonedRectangle.hash_key`.
+:func:`gFunctionDatabase.coordinate_generator.ZonedRectangle.hash_key`.
 
 .. table:: The Nix and Niy values that are created, note that 5x10 interior would make the rectangle a uniform spaced
             field and is not included in the zoned rectangular library
@@ -30,6 +30,6 @@ The files are stored in a key: value dictionary. The key for zoned rectangles is
 
 Source Code
 --------------
-.. literalinclude:: ../../../gFunctionLibrary/Libraries/examples/gen_zonedrectangle_coordinates.py
+.. literalinclude:: ../../../gFunctionDatabase/Data/examples/gen_zonedrectangle_coordinates.py
     :language: python
     :linenos:
