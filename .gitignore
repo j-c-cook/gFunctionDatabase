@@ -10,3 +10,6 @@ gFunctionDatabase/Data/__pycache__/
 gFunctionDatabase/Management/__pycache__/
 gFunctionDatabase/General/__pycache__/
 gFunctionDatabase/__pycache__/
+
+# Ignore the doc build 
+docs/build/
