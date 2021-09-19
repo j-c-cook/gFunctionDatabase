@@ -1,6 +1,10 @@
 # Jack C. Cook
 # Thursday, September 16, 2021
 
+"""
+Retrieve data from each of the databases.
+"""
+
 import gFunctionDatabase as gfdb
 
 
@@ -25,13 +29,6 @@ def main():
     # have one configuration in it
     r_level = r.levels[r_configuration]
 
-    # Access C configuration
-    c_configuration = 'C'
-    c = gfdb.Management.retrieval.Retrieve(c_configuration)
-    library_boundaries = c.query_database()
-    c_data = c.retrieve(N, M)
-    print(c_data)
-
     # Access L configuration
     L_configuration = 'L'
     L = gfdb.Management.retrieval.Retrieve(L_configuration)
@@ -49,17 +46,24 @@ def main():
     LopU_data = LopU.retrieve(N, M)
     print(LopU_data)
 
-    # Access Open rectangle configuration
-    Open_configuration = 'Open'
-    Open = gfdb.Management.retrieval.Retrieve(Open_configuration)
-    Open_data = Open.retrieve(N, M)
-    print(Open_data)
-
     # Access U configurations
     U_configuration = 'U'
     U = gfdb.Management.retrieval.Retrieve(U_configuration)
     U_data = U.retrieve(N, M)
     print(U_data)
+
+    # Access C configuration
+    c_configuration = 'C'
+    c = gfdb.Management.retrieval.Retrieve(c_configuration)
+    library_boundaries = c.query_database()
+    c_data = c.retrieve(N, M)
+    print(c_data)
+
+    # Access Open rectangle configuration
+    Open_configuration = 'Open'
+    Open = gfdb.Management.retrieval.Retrieve(Open_configuration)
+    Open_data = Open.retrieve(N, M)
+    print(Open_data)
 
     # Access zoned configuration
     zoned_configuration = 'zoned'
@@ -70,4 +74,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
