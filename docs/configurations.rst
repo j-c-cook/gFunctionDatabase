@@ -1,13 +1,18 @@
-.. modules:
+.. configurations:
 
 ***************
-Modules
+Configurations
 ***************
+
+The following configurations are available in the database:
 
 .. toctree::
     :maxdepth: 2
 
-    Modules/statistics
-    Modules/handle_contents
-    Modules/coordinate_generator
-    Modules/accesslibraries
+    Configurations/rectangle
+    Configurations/L
+    Configurations/LopU
+    Configurations/U
+    Configurations/C
+    Configurations/Open
+    Configurations/Zoned
