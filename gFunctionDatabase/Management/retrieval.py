@@ -1,5 +1,6 @@
 from gFunctionDatabase import General
 from . import data_definition
+import natsort
 
 import logging
 
@@ -152,11 +153,11 @@ class Retrieve(BaseRetrieval):
             sec_type = self.secondary_type[self.configuration]
             if sec_type == 'r':
                 # sec type reduction
-                keys = list(reversed(list(content.keys())))
+                keys = list(reversed(natsort.natsorted(list(content.keys()))))
             elif sec_type == 't':
-                keys = list(content.keys())
+                keys = natsort.natsorted(list(content.keys()))
             elif sec_type == 'pair':
-                keys = list(content.keys())
+                keys = natsort.natsorted(list(content.keys()))
 
             for _key in keys:
                 data[self.configuration + '_' + key + '_' + sec_type +
