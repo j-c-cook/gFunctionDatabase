@@ -4,7 +4,8 @@
 
 ### Fixes
 
-- [Issue 30](https://github.com/j-c-cook/gFunctionDatabase/issues/30) - The C configurations have two levels in the database. The second level is a thickness parameter.   
+- [Issue 30](https://github.com/j-c-cook/gFunctionDatabase/issues/30) - Fixes the C configurations to be defined as having two levels. Prior to this point, the C configurations were considered to have one level. The C configurations have two levels in the database. The second level is a thickness parameter. The C configurations are now defined to have two levels, and when a configuration is selected, a unimodal list is returned.
+- [Issue 31](https://github.com/j-c-cook/gFunctionDatabase/issues/31) - This fixes the zoned rectangle configurations to return as unimodal from lowest to highest response. When a configuration is selected from the database, if the configuration has a second layer (U, LopU, Open, C, zoned), the returned dictionary is supposed to be unimodal from lowest to highest response. The zoned rectangle was not properly being sorted.
 
 ## Version 0.2 (2020-08-05)
 
