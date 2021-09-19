@@ -41,6 +41,8 @@ def main():
     # --------------------------------------------------------------------------
 
     # Access LopU configuration
+    # Note: the LopU secondary key is of type "reduction", where the number
+    # represents the number of points removed
     LopU_configuration = 'LopU'
     LopU = gfdb.Management.retrieval.Retrieve(LopU_configuration)
     LopU_data = LopU.retrieve(N, M)
