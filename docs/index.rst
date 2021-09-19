@@ -99,13 +99,13 @@ Database contents
 The database contains configurations and methods to access and use g-functions.
 
 ********************
-Modules and examples
+Database contents
 ********************
 
 .. toctree::
    :maxdepth: 2
 
-   modules
+   configurations
    examples
 
 **********************
