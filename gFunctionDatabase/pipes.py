@@ -36,6 +36,62 @@ class HDPEDimensions:
             return json.load(f_in)
 
 
+def pipe_selection(height: float, m_flow_borehole: float, fluid, epsilon,
+                   HDPE: HDPEDimensions):
+    global nominal_size, r_in, r_out, h_l, Re, f
+    length = height * 2.  # Pipe length goes down and then up
+    # Find pipe that is below 15 ft of head loss
+    count = -1
+    above_fifteen = True
+    # Loop through HDPE SDR-11 pipe indices until the head loss is below
+    # 15 ft
+    while above_fifteen:
+        count += 1
+        nominal_size, r_in, r_out = HDPE.index_pipe(count)
+        h_l, Re, f = pipe_dp(length, r_in, m_flow_borehole, fluid, epsilon)
+        h_l /= 0.3048  # Head loss in feet
+
+        if h_l <= 15.0:
+            above_fifteen = False
+
+    return nominal_size, r_in, r_out, h_l, Re, f
+
+
+def shank_spacing(config, rb, rp_out):
+    # This gives the shank spacing given a configuration A, B or C as defined
+    # in Paul's thesis
+    if config == 'A':
+        shank = 0.
+    elif config == 'B':
+        total_distance = rb * 2.
+        pipe_coverage = rp_out * 2. * 2.
+        empty_space = total_distance - pipe_coverage
+        shank = empty_space / 3.
+    elif config == 'C':
+        total_distance = rb * 2.
+        pipe_coverage = rp_out * 2. * 2.
+        shank = total_distance - pipe_coverage
+    else:
+        raise ValueError('Only A, B, or C configurations allowed.')
+
+    return shank
+
+
+def place_pipes(s, r_out, n_pipes):
+    """ Positions pipes in an axisymetric configuration."""
+    D_s = s / 2 + r_out
+    pi = np.pi
+    dt = pi / float(n_pipes)
+    pos = [(0., 0.) for i in range(2 * n_pipes)]
+    for i in range(n_pipes):
+        pos[2 * i] = (
+            D_s * np.cos(2.0 * i * dt + pi),
+            D_s * np.sin(2.0 * i * dt + pi))
+        pos[2 * i + 1] = (D_s * np.cos(2.0 * i * dt + pi + dt),
+                          D_s * np.sin(2.0 * i * dt + pi + dt))
+    return pos
+
+
 def pipe_dp(length: float, r_in: float, m_flow_borehole: float,
             fluid: gt.media.Fluid, epsilon: float):
     # Computes the head loss in SI units (in meters)
