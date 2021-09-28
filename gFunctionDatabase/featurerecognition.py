@@ -27,7 +27,7 @@ import matplotlib.pyplot as plt
 from copy import deepcopy
 import math
 # from . import handle_contents
-from Management.application import GFunction
+from .Management.application import GFunction
 
 
 class FeatureRecognition:
