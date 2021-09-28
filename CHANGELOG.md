@@ -1,14 +1,29 @@
 # History of changes
 
-## Version 0.2 (2020-08-05)
+## Version 0.3 (2021-09-28)
+
+### Enhancements
+
+- [Issue 34](https://github.com/j-c-cook/gFunctionDatabase/issues/34) - The g-function interpolation function is enhanced to automatically select the most ideal interpolation kind. A warning is supplied if extrapolation is necessary. 
+
+### Fixes
+
+- [Issue 30](https://github.com/j-c-cook/gFunctionDatabase/issues/30) - Fixes the C configurations to be defined as having two levels. Prior to this point, the C configurations were considered to have one level. The C configurations have two levels in the database. The second level is a thickness parameter. The C configurations are now defined to have two levels, and when a configuration is selected, a unimodal list is returned.
+- [Issue 31](https://github.com/j-c-cook/gFunctionDatabase/issues/31) - This fixes the zoned rectangle configurations to return as unimodal from lowest to highest response. When a configuration is selected from the database, if the configuration has a second layer (U, LopU, Open, C, zoned), the returned dictionary is supposed to be unimodal from lowest to highest response. The zoned rectangle was not properly being sorted.
+
+### New features
+- [Issue 32](https://github.com/j-c-cook/gFunctionDatabase/issues/32) - A module for creating (x, y) coordinates, named `coordinates.py` is created. The module can create rectangles, open rectangles, U-shapes, L-shapes and zoned rectangles.
+- [Issue 33](https://github.com/j-c-cook/gFunctionDatabase/issues/33) - A module named `utilities.py` is introduced, with the purpose being that it contains time related functions. A function containing Eskilson's original 27 logarithmic time points is created.
+
+## Version 0.2 (2021-08-05)
 
 ### Changes
 
-- [Issue 17](https://github.com/j-c-cook/gFunctionLibrary/issues/17) - The projects name is modified from `gFunctionLibrary` to `gFunctionDatabase` to more accurately describe its contents. The database contains both the data and the database management system (DBMS). 
+- [Issue 17](https://github.com/j-c-cook/gFunctionLibrary/issues/17) - The projects name is modified from `gFunctionLibrary` to `gFunctionDatabase` to more accurately describe its contents. The database contains both the data and the database management system (DBMS).
 
 ### Documents
 
-- [Issue 13](https://github.com/j-c-cook/gFunctionLibrary/issues/13) - Update the table of contents in the README with the library contents from the Oak Ridge report. 
+- [Issue 13](https://github.com/j-c-cook/gFunctionLibrary/issues/13) - Update the table of contents in the README with the library contents from the Oak Ridge report.
 - [Issue 12](https://github.com/j-c-cook/gFunctionLibrary/issues/12) - Adds in a `Reports/` folder. A report written for Oak Ridge National Laboratory is the first of the reports to be included in the reports folder. The g-function library over view report discusses the contents of the library and how it was computed.
 - [Issue 11](https://github.com/j-c-cook/gFunctionLibrary/issues/11) - Adds in acknowledgments to Oak Ridge National Laboratory and Dr. Jeffrey Spitler in the README file.
 
@@ -21,14 +36,12 @@
 - [Issue 25](https://github.com/j-c-cook/gFunctionDatabase/issues/25) - A base object for [retrieval.py](https://github.com/j-c-cook/gFunctionDatabase/tree/main/gFunctionDatabase/Management/retrieval.py) is added. The object has a load_data method that takes in a configuration string argument, loads the specific database configuration file into memory and returns the entire file as a dictionary.
 - [Issue 24](https://github.com/j-c-cook/gFunctionDatabase/issues/24) - A base object for the database management module [data_definition.py](https://github.com/j-c-cook/gFunctionDatabase/tree/main/gFunctionDatabase/Management/data_definition.py) is created. The object registers the available configurations into an instance refered to as `registry`. The registry contains quick access to the path of a configuration given a key input of L, U, LopU, Open, rectangle or zoned.  
 - [Issue 23](https://github.com/j-c-cook/gFunctionDatabase/issues/23) - A function named find_data_files is defined in [available.py](https://github.com/j-c-cook/gFunctionDatabase/tree/main/gFunctionDatabase/Database/available.py) that locates and returns the file paths of all the configurations in the database.
-- [Issue 22](https://github.com/j-c-cook/gFunctionDatabase/issues/22) - A configuration object is added to the [available.py](https://github.com/j-c-cook/gFunctionDatabase/tree/main/gFunctionDatabase/Database/available.py) module. This class seeks to serve as the base class for many of the database management modules. The instances provided here are user defined and pertain to the json levels. 
-- [Issue 14](https://github.com/j-c-cook/gFunctionLibrary/issues/14) - A Python `tests/` folder is created and a yml file is created that runs tests on a local server. 
-- [Issue 10](https://github.com/j-c-cook/gFunctionDatabase/issues/10) - The following is a list of new database files added: C, L and LopU configurations. The existing data files were rectangle, zoned, U, and open configurations. 
+- [Issue 22](https://github.com/j-c-cook/gFunctionDatabase/issues/22) - A configuration object is added to the [available.py](https://github.com/j-c-cook/gFunctionDatabase/tree/main/gFunctionDatabase/Database/available.py) module. This class seeks to serve as the base class for many of the database management modules. The instances provided here are user defined and pertain to the json levels.
+- [Issue 14](https://github.com/j-c-cook/gFunctionLibrary/issues/14) - A Python `tests/` folder is created and a yml file is created that runs tests on a local server.
+- [Issue 10](https://github.com/j-c-cook/gFunctionDatabase/issues/10) - The following is a list of new database files added: C, L and LopU configurations. The existing data files were rectangle, zoned, U, and open configurations.
 
 ## Version 0.1.12 (2021-05-18)
 
 ### New features
 
 - [Issue 5](https://github.com/j-c-cook/gFunctionLibrary/issues/5) - Add functionality to the fileio module that can read any `csv`, `xlsx` or `json` and return a dictionary with one function.
-
-

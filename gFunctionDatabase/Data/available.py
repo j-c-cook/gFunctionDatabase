@@ -13,24 +13,28 @@ class Configuration:
     """
     def __init__(self):
         # Define the number of levels in the json file
-        self.levels = {'C': 1, 'L': 1, 'LopU': 2, 'Open': 2, 'U': 2,
-                       'rectangle': 1, 'zoned': 2}
-        # Reusable dictionaries for the number of primary and secondary keys
-        two_and_none = {'primary': 2, 'secondary': None}
-        two_and_one = {'primary': 2, 'secondary': 1}
-        two_and_two = {'primary': 2, 'secondary': 2}
+        self.levels = {
+            'rectangle': 1,
+            'L': 1,
+            'U': 2,
+            'LopU': 2,
+            'Open': 2,
+            'C': 2,
+            'zoned': 2}
         # Defines the number of keys for primary and secondary values in
         # each configuration
         # the secondary types:
         #   r: reduction
         #   t: thickness
         #   pair: (x, y) pair
-        self.secondary_type = {'L': None,
-                               'rectangle': None,
-                               'LopU': 'r',
-                               'Open': 't',
-                               'U': 't',
-                               'zoned': 'pair'}
+        self.secondary_type = {
+            'rectangle': None,
+            'L': None,
+            'U': 't',
+            'LopU': 'r',
+            'C': 't',
+            'Open': 't',
+            'zoned': 'pair'}
 
     def compute_nbh(self, configuration, Nx: int, Ny: int, Nix: int = None,
                     Niy: int = None, nested: int = None):

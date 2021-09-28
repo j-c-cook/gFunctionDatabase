@@ -26,7 +26,7 @@ copyright = '2021, Jack C. Cook'
 author = 'Jack C. Cook, Jeffrey D. Spitler & Timothy West'
 
 # The full version, including alpha/beta/rc tags
-release = '0.2'
+release = '0.3'
 
 
 # -- General configuration ---------------------------------------------------

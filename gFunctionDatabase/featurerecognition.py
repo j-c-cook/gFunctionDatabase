@@ -26,7 +26,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from copy import deepcopy
 import math
-from . import handle_contents
+# from . import handle_contents
+from .Management.application import GFunction
 
 
 class FeatureRecognition:
@@ -221,7 +222,7 @@ class FeatureRecognition:
         return fig, ax
 
 
-def recognize_features(bf: handle_contents.Borefield, lib_type: str):
+def recognize_features(bf, lib_type: str):
     """
     Get information about a field by feature recognition.
 

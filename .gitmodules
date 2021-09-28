@@ -1,0 +1,3 @@
+[submodule "pygfunction"]
+	path = pygfunction
+	url = https://github.com/j-c-cook/pygfunction

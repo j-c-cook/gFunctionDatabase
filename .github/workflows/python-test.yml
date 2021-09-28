@@ -4,6 +4,8 @@ jobs:
   test:
     runs-on: self-hosted
     steps:
+      - name: Submodules
+        run: git submodule init && git submodule update
       - name: Prepare repo
         uses: actions/checkout@master
       - name: Test

@@ -1,7 +1,7 @@
 # Jack C. Cook
 # Tuesday, February 2, 2021
 
-from setuptools import setup
+from setuptools import setup, find_packages
 import subprocess
 import sys
 import os
@@ -33,13 +33,13 @@ def pull_first():
     os.chdir(gitdir)
     g = git.cmd.Git(gitdir)
     try:
-        g.execute(['git', 'lfs', 'pull'])  # this is for the git-lfs tracked files
+        # g.execute(['git', 'lfs', 'pull'])  # this is for the git-lfs tracked files
         g.execute(['git', 'submodule', 'update', '--init'])  # this is to pull in the submodule(s)
     except git.exc.GitCommandError:
         raise RuntimeError("Make sure git-lfs is installed!")
     os.chdir(cwd)
 
-# pull_first()
+pull_first()
 
 # read the contents of your README file
 # https://packaging.python.org/guides/making-a-pypi-friendly-readme/#including-your-readme-in-your-package-s-metadata
@@ -56,14 +56,11 @@ setup(name='gFunctionDatabase',
                         'pandas>=1.3.2',
                         'natsort>=7.1.1'],
       url='https://github.com/j-c-cook/gFunctionDatabase',
-      download_url='https://github.com/j-c-cook/gFunctionDatabase/archive/v0.2.1.tar.gz',
+      download_url='https://github.com/j-c-cook/gFunctionDatabase/archive/v0.3.tar.gz',
       long_description=long_description,
       long_description_content_type='text/markdown',
-      version='0.2.1',
-      packages=['gFunctionDatabase',
-                'gFunctionDatabase.Data',
-                'gFunctionDatabase.General',
-                'gFunctionDatabase.Management'],
+      version='0.3',
+      packages=find_packages(),
       include_package_data=True,
       author='Jack C. Cook',
       author_email='jack.cook@okstate.edu',
