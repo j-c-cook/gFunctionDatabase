@@ -4,9 +4,11 @@
 Dimensioning Rules Example
 ****************************
 A 7x10 borefield is chosen to verify the dimensioning rules of Per Eskilson (1988) :cite:`Eskilson_1988`. These g-functions
-have been computed using the methodology of Cimmino and Bernier (2014) :cite:`Cimmino_Bernier_2014`. The uniform
-borehole wall temperature (UBHWT) boundary condition with 12 segments is used, this was the closest when compared
-to Eskilson. Specifically, this is boundary condition 3 in Cimmino and Bernier (2014). Cimmino went on to implement the g-function calculation
+have been computed using the methodology of Cimmino and Bernier (2014) :cite:`Cimmino_Bernier_2014`. The uniform borehole wall temperature
+boundary condition with 12 uniform segment lengths along each borehole is used to compute the g-functions in this example. (Note that the
+number of segments used here is not the adaptive discretization scheme like the library. 12 segments at each depth was chosen for the purpose
+of testing the accuracy of B/H interpolation and bi-linear interpolation, shown in other examples.) Specifically, this is boundary condition
+3 in Cimmino and Bernier (2014). Cimmino went on to implement the g-function calculation
 in an open source Python package known as `pygfunction <https://github.com/MassimoCimmino/pygfunction>`_,
 which is published on the `Python Package Index (PyPI) <https://pypi.org/project/pygfunction/>`_ :cite:`Cimmino_2018b`.
 Further improvements to the g-function calculation methodology are detailed in Cimmino (2018)
