@@ -3,7 +3,6 @@ from . import Data
 from . import Management
 from . import statistics
 from . import fileio
-from . import folder_to_lib
 from . import platform_specific
 from . import featurerecognition
 from . import pipes
