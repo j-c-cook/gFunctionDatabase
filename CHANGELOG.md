@@ -2,6 +2,10 @@
 
 ## Current Version
 
+### Enhancements
+
+- [Issue 34](https://github.com/j-c-cook/gFunctionDatabase/issues/34) - The g-function interpolation function is enhanced to automatically select the most ideal interpolation kind. A warning is supplied if extrapolation is necessary. 
+
 ### Fixes
 
 - [Issue 30](https://github.com/j-c-cook/gFunctionDatabase/issues/30) - Fixes the C configurations to be defined as having two levels. Prior to this point, the C configurations were considered to have one level. The C configurations have two levels in the database. The second level is a thickness parameter. The C configurations are now defined to have two levels, and when a configuration is selected, a unimodal list is returned.
