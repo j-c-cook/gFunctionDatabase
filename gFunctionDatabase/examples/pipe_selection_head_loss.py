@@ -7,7 +7,8 @@ import gFunctionDatabase as gfdb
 
 def main():
     # For 2.5 GPM/ton and 250 ft/ton, the flow rate for pure water is 0.2 kg/s
-    m_flow_borehole_per_100m = 0.2 / 100.  # kg/s per 100 m of flow to each borehole
+    # flow rate of kg/s per 100 m of drilling to each borehole
+    m_flow_borehole_per_100m = 0.2 / 100.
     # The borehole lengths selected for the library
     borehole_lengths = [24, 48, 96, 192, 384]
 
@@ -43,7 +44,7 @@ def main():
 
         print('{0}\t{1}\t{2}\t{3}\t{4:.3f}\t{5:.0f}\t{6:.2f}\t{7}'.
               format(borehole_lengths[i], nominal_size, ID, OD, f, Re, h_l,
-                     _m_flow_borehole))
+                     m_flow_borehole))
 
 
 if __name__ == '__main__':
