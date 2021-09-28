@@ -1,7 +1,7 @@
 # Jack C. Cook
 # Tuesday, February 2, 2021
 
-from setuptools import setup
+from setuptools import setup, find_packages
 import subprocess
 import sys
 import os
@@ -60,10 +60,7 @@ setup(name='gFunctionDatabase',
       long_description=long_description,
       long_description_content_type='text/markdown',
       version='0.3',
-      packages=['gFunctionDatabase',
-                'gFunctionDatabase.Data',
-                'gFunctionDatabase.General',
-                'gFunctionDatabase.Management'],
+      packages=find_packages(),
       include_package_data=True,
       author='Jack C. Cook',
       author_email='jack.cook@okstate.edu',
