@@ -33,13 +33,13 @@ def pull_first():
     os.chdir(gitdir)
     g = git.cmd.Git(gitdir)
     try:
-        g.execute(['git', 'lfs', 'pull'])  # this is for the git-lfs tracked files
+        # g.execute(['git', 'lfs', 'pull'])  # this is for the git-lfs tracked files
         g.execute(['git', 'submodule', 'update', '--init'])  # this is to pull in the submodule(s)
     except git.exc.GitCommandError:
         raise RuntimeError("Make sure git-lfs is installed!")
     os.chdir(cwd)
 
-# pull_first()
+pull_first()
 
 # read the contents of your README file
 # https://packaging.python.org/guides/making-a-pypi-friendly-readme/#including-your-readme-in-your-package-s-metadata
