@@ -1,6 +1,6 @@
 # History of changes
 
-## Current Version
+## Version 0.3 (2021-09-28)
 
 ### Enhancements
 
@@ -15,7 +15,7 @@
 - [Issue 32](https://github.com/j-c-cook/gFunctionDatabase/issues/32) - A module for creating (x, y) coordinates, named `coordinates.py` is created. The module can create rectangles, open rectangles, U-shapes, L-shapes and zoned rectangles.
 - [Issue 33](https://github.com/j-c-cook/gFunctionDatabase/issues/33) - A module named `utilities.py` is introduced, with the purpose being that it contains time related functions. A function containing Eskilson's original 27 logarithmic time points is created.
 
-## Version 0.2 (2020-08-05)
+## Version 0.2 (2021-08-05)
 
 ### Changes
 
