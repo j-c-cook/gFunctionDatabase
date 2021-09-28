@@ -8,7 +8,8 @@
 - [Issue 31](https://github.com/j-c-cook/gFunctionDatabase/issues/31) - This fixes the zoned rectangle configurations to return as unimodal from lowest to highest response. When a configuration is selected from the database, if the configuration has a second layer (U, LopU, Open, C, zoned), the returned dictionary is supposed to be unimodal from lowest to highest response. The zoned rectangle was not properly being sorted.
 
 ### New features
-- [Issue 32](https://github.com/j-c-cook/gFunctionDatabase/issues/32) - A module for creating (x, y) coordinates, named `coordinates.py` is created. The module can create rectangles, open rectangles, U-shapes, L-shapes and zoned rectangles. 
+- [Issue 32](https://github.com/j-c-cook/gFunctionDatabase/issues/32) - A module for creating (x, y) coordinates, named `coordinates.py` is created. The module can create rectangles, open rectangles, U-shapes, L-shapes and zoned rectangles.
+- [Issue 33](https://github.com/j-c-cook/gFunctionDatabase/issues/33) - A module named `utilities.py` is introduced, with the purpose being that it contains time related functions. A function containing Eskilson's original 27 logarithmic time points is created.
 
 ## Version 0.2 (2020-08-05)
 
